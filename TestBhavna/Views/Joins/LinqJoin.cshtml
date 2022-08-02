@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<TestBhavna.Models.JoinsVM>
+
+@using (Html.BeginForm())
+{
+    
+    <h2>Employee Data</h2>
+    <hr />
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Name</th>
+        </tr>
+        @foreach (var pro in Model)
+        {
+            <tr>
+
+                <td>@pro.product.ProductId</td>
+                <td>@pro.product.ProductName</td>
+                <td>@pro.booking.Name</td>
+            </tr>
+        }
+    </table>
+}

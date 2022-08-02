@@ -1,0 +1,253 @@
+﻿
+@{
+    ViewBag.Title = "TestDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>TestDetails</h2>*@
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/coreast/constant/js/vnd/jquery-3.5.1.min.js"></script>
+<script src="~/Content/assets/js/thor/main-b906d965f158c336fb02d20c9f506ba7.js"></script>
+<script src="~/Content/assets/js/thor/product-78f93af0425ed5408a40ac7ec51387c4.js"></script>
+
+<main style="background-color: #FFF5EE">
+    <style>
+
+
+        .mac {
+            display: block !important;
+        }
+
+        .pc {
+            display: block !important;
+        }
+
+        .thumbnail {
+            margin: 0 0 5px 0;
+        }
+
+        img.thumbnail {
+            border: 2px solid transparent;
+        }
+
+        .small-img {
+            border: 2px solid #3d246d !important;
+        }
+
+        [type="checkbox"] + label {
+            height: 37px;
+        }
+
+        [type=radio].with-gap:checked + label:after, [type=radio].with-gap:checked + label:before, [type=radio]:checked + label:after {
+            border-color: #DA0E68;
+        }
+
+        [type=radio].with-gap:checked + label:after, [type=radio]:checked + label:after {
+            background-color: #DA0E68;
+        }
+
+        [type=checkbox]:checked + label:before {
+            border-right-color: #DA0E68;
+            border-bottom-color: #DA0E68;
+        }
+
+        input[type=text]:not(.browser-default):focus:not([readonly]) + label {
+            color: #DA0E68;
+        }
+
+        .cat-text {
+            color: #636466;
+        }
+
+        .addToCart:hover {
+            background-color: #ff9212 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9212 !important;
+        }
+
+        .see-all-reviews:hover {
+            box-shadow: 0 0 11px rgba(33,33,33,.2) !important;
+        }
+
+        .sezzle-button-text.sezzle-left {
+            font-size: 13px !important;
+        }
+
+        .sezzle-payment-amount .money_Symbol {
+            font-size: 11px;
+            padding-right: 1px;
+            display: inline-block;
+        }
+
+        #addonsModal .sezzle-shopify-info-button {
+            display: none;
+        }
+
+        textarea:focus-visible {
+            outline: none !important;
+        }
+
+        .delay-image {
+            max-width: 100% !important;
+        }
+
+        .character-counter {
+            position: absolute;
+            top: 48px;
+            min-width: 420px;
+            text-align: right;
+        }
+
+        #addonsModal {
+            min-width: 970px !important;
+        }
+
+        .progress {
+            background-color: #e5e5e5;
+        }
+    </style>
+
+    <br />
+
+    <div class="col s12" style="padding-left: 10px; padding-right: 100px; background-color: #FFF5EE !important; ">
+
+        <div class="col s12 breadcrumb-wrapper" style="padding-top: 2px;padding-bottom: 9px;">
+            <a href="../../index.html" class="breadcrumb">Home</a>
+            <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="breadcrumb-delim">
+                <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+            </svg>
+            <a class="breadcrumb" href="../../cake.html">Cakes</a>
+            <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="breadcrumb-delim">
+                <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+            </svg>
+            <a class="breadcrumb" href="javascript:;">Chocolate  Truffle</a>
+        </div>
+    </div>
+    <div class="row container" style="padding-left:50px;">
+        <div class="col-sm-6" style="align-content:center;">
+
+            <br />
+            <div class="center-align zoom-gallery-slide active" data-slide-id="zoom" style=" margin-bottom: 18px;">
+                <div class="product-image-div" style="box-shadow: 0px 3px 6px #00000029; width: 350px; height: 350px; ">
+                    <a class="MagicZoom" id="zoom-v" data-options="autostart:false; expand: fullscreen; expandZoomMode: zoom; variableZoom : true; selectorTrigger: hover; zoomWidth:120%;zoomHeight:100%" href="../../../assets.in/product/primary/2014/6/31204213a.jpeg?dpr=1&amp;w=1000"
+                        <img id="prod-big-image" class="bg-img delay-image lazyload" style="aspect-ratio:1/1" src="~/Content/img/cake-desktop/B6.jpg" height="400px" width="400px"
+                             data-src="../../../assets.in/product/primary/2014/6/312043784.jpeg?dpr=1&amp;w=400"
+                             alt="Buy Chocolate  Truffle" title="Chocolate  Truffle"/>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+        
+        <div class="col-sm-6">
+            <h3>Chocolate Truffle</h3>
+            
+            <div class="pdPriceWrapper col l12" style="margin-bottom:10px; position: relative;margin-top: 2%;padding-left: 0;">
+                <span class="prdDesc-price" style="font-size:20px; color: #333; font-weight: normal;"> <i class="fa fa-inr" aria-hidden="true"></i> </span>
+                <div class="row" style="margin-top: -10px;margin-bottom: 0px">
+                    <div class="col-7" style="display: inline-block">
+                        <div style="padding-right: 0;">
+                            <span style="font-size:35px; padding-right:5px;" class="moneySymbol">₹</span>
+                            <span class="product-price moneyCal" data-inr="549" style="color: #222; font-size:48px; font-weight: 600;" id="productPrice">
+                                549
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 0px">
+                    <div class='actual-list col l12' style="color: #636466;padding-left: 0;min-height: 80px;overflow:hidden;max-height: 116px;padding-left: 11px;">
+                        <ul>
+                            <li>Cake Flavour: Truffle&nbsp;</li>
+                            <li>Type of Cake: Cream</li>
+                            <li>Type of Bread: Chocolate</li>
+                            <li>Type of Cream: Truffle&nbsp;</li>
+                            <li>Filling in Layers: Truffle &nbsp;</li>
+                            <li>Toppings: Truffle &amp; Chocolate Garnish&nbsp;&nbsp;</li>
+                        </ul>
+                    </div>
+                </div>
+                <br />
+                @*@*@*  *@*@*@
+                <form id="addProductInCartForm" method="POST" action="https://wwwin/giftbox/addproduct/16159/98767" novalidate>
+                    <input type="hidden" name="_csrf" value="0a66b9c5-fec4-4117-8462-9a5b1b74e98b" />
+                    <div id="prdut-attr-html" style="text-align:left;">
+                        <div class="row" style="margin-top:0;margin-bottom:0 !important;">
+                            <div class="" style="padding-left:0; position: relative;margin-bottom: 10px">
+                                
+                                <label>
+                                    <input data-name="500 gm" id="attval_5437671" class="with-gap prod-att-radio" name="att_629188" type="radio" data-priceadj="0.0000" value="5437671" checked>
+                                    <span for="attval_5437671" style="margin-left:8px; padding-left:25px;padding-right: 15px">500 gm</span>
+                                </label>
+                                <label>
+                                    <input data-name="1 kg" id="attval_5437672" class="with-gap prod-att-radio" name="att_629188" type="radio" data-priceadj="500.0000" value="5437672">
+                                    <span for="attval_5437672" style="margin-left:8px; padding-left:25px;padding-right: 15px">1 kg</span>
+                                </label>
+                                <label>
+                                    <input data-name="1.5 kg" id="attval_5437673" class="with-gap prod-att-radio" name="att_629188" type="radio" data-priceadj="1000.0000" value="5437673">
+                                    <span for="attval_5437673" style="margin-left:8px; padding-left:25px;padding-right: 15px">1.5 kg</span>
+                                </label>
+                                <label>
+                                    <input data-name="2 kg" id="attval_5437674" class="with-gap prod-att-radio" name="att_629188" type="radio" data-priceadj="1500.0000" value="5437674">
+                                    <span for="attval_5437674" style="margin-left:8px; padding-left:25px;padding-right: 15px">2 kg</span>
+                                </label>
+                                <label>
+                                    <input data-name="3 kg" id="attval_5437675" class="with-gap prod-att-radio" name="att_629188" type="radio" data-priceadj="2500.0000" value="5437675">
+                                    <span for="attval_5437675" style="margin-left:8px; padding-left:25px;padding-right: 15px">3 kg</span>
+                                </label>
+                                <label>
+                                    <input data-name="4 kg" id="attval_5437676" class="with-gap prod-att-radio" name="att_629188" type="radio" data-priceadj="3500.0000" value="5437676">
+                                    <span for="attval_5437676" style="margin-left:8px; padding-left:25px;padding-right: 15px">4 kg</span>
+                                </label>
+                                
+                            </div>
+                            <div class="col-3" style="padding-top:20px;padding-bottom: 15px">
+                                <label>
+                                    <input data-priceadj="100.0000" class="prod-att-checkbox prod-eg-check" type="checkbox" id="att_154790" name="att_154790" value="257640">
+                                    <span for="att_154790" style="padding-left:25px;">Eggless</span>
+                                </label>
+
+                            </div>
+
+                            <div class="col-3" style="padding-top:20px;padding-bottom: 15px">
+                                <label>
+                                    <input data-priceadj="150.0000" class="prod-att-checkbox prod-hs-check" type="checkbox" id="att_154794" name="att_154794" value="258630">
+                                    <span for="att_154794" style="padding-left:35px;">Heart Shape</span>
+                                </label>
+
+                            </div>
+
+                            <div class="col s12 l12" style="padding-left: 0; margin-bottom: 10px;">
+                                <div class="input-field col l6" style="margin-top: 10px; ">
+                                    <input style="border: 1px solid #DFDFDF; box-shadow: 0px 1px 2px #00000029; padding: 0 10px; min-width: 300px; margin-bottom: 0; height: 43px; background-color: white !important" data-length="30" maxlength="30" id="msgOnCakeAtt" value="" required data-id="155164" type="text" name="att_155164">
+                                    <label style="margin-left:2%;height: unset;margin-top: 3px;" id="labelForMsgOnCake" for="msgOnCakeAtt"><strong>Message on cake</strong></label>
+                                </div>
+                            </div>
+                            <input style=" margin: 0 0 15px;" type="hidden" name="att_154790" value="257145"><input style=" margin: 0 0 15px;" type="hidden" name="att_154794" value="258135">
+                        </div>
+                    </div>
+
+                    <div class="prdu-bunw-div" style="margin-bottom: 15px;">
+
+                        <div class="col l6" style="margin-bottom: 10px;padding-left: 0;max-width: 360px">
+                            <button value="AddtoCart" type="submit" class="btn prdDesc-buynow buy-now-mobile buyNowAdon cartUrl addToCart addons-ajax disabled"
+                                    style="background: #FF9F00; width: 100%; font-size: 16px; height: 45px; line-height: 45px; color: white !important; border-radius: 5px; background-color: #FFC000 !important;">
+                                <span style="color:springgreen !important">
+                                </span> <strong>Add to Cart</strong>
+                            </button>
+                        </div>
+                        <div class="col l6" style="margin-bottom: 10px !important;padding-left: 0;max-width: 360px">
+                            <button value="AddtoCart" type="submit" class="btn prdDesc-buynow buy-now-mobile buyNowAdon cartUrl addToCart addons-ajax disabled"
+                                    style="color: white !important; width: 100%; font-size: 16px; height: 45px; line-height: 45px; background-color: limegreen !important; border-radius: 5px; padding-bottom: 10px;s">
+                                <span style="padding-right: 5px; padding-bottom:10px;vertical-align: middle;background-repeat: no-repeat;width: 14px;height: 14px;display: inline-block;">
+                                </span><strong>Buy now</strong>
+                            </button>
+                        </div>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

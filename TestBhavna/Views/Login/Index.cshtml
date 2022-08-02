@@ -1,0 +1,98 @@
+﻿@using TestBhavna.Models;
+@model LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #ffecf0 !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="background">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div class="form-group">
+                @ViewBag.Message
+            </div>
+        }
+
+
+        <div class="parent clearfix">
+            <div class="login">
+                <div class="container">
+                    @using (Html.BeginForm("LoginIn", "Login", FormMethod.Post))
+                    {
+                        <br />
+
+                        <h4> @Html.LabelFor(a => a.UserName)</h4>
+                        <div>
+                            @Html.TextBoxFor(a => a.UserName, new { @maxlength = "10", @size = "10", @class = "form-control" })
+                            @Html.ValidationMessageFor(a => a.UserName)
+
+                        </div>
+                        <br />
+                        <h4>
+                            @Html.LabelFor(a => a.Password)
+                        </h4>
+                        <div>
+                            @Html.PasswordFor(a => a.Password, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <input type="submit" value="Login" class="btn btn-info" />
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 border-radius">
+                <div class="contact-form bg-light rounded p-5" style="align-content: center; padding-left: 50px !important; background-color: white !important; border-radius: 30px !important; box-shadow: 0px 7px 13px #00000029 !important">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                                <h1 class="section-title position-relative text-center mb-5" style="color:hotpink;">Login Form</h1>
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                        <div class="row" style="padding-right:10px!important;">
+                            @using (Html.BeginForm("LoginIn", "Login", FormMethod.Post))
+                            {
+                                <div class="col-sm-10 control-group">
+                                    @Html.LabelFor(a => a.UserName)
+                                    <div>
+                                        @Html.TextBoxFor(a => a.UserName, new { @maxlength = "10", @size = "10", @class = "form-control" })
+                                        @Html.ValidationMessageFor(a => a.UserName)
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-10 control-group">
+                                    @Html.LabelFor(a => a.Password)
+                                    <div>
+                                        @Html.PasswordFor(a => a.Password, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <br />
+                                <input type="submit" value="Login" class="btn btn-info" /> <br />
+                             }
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

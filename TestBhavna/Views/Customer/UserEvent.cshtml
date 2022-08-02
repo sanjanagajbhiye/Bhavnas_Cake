@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "UserEvent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/Pages/Event.js"></script>
+
+<div class="container-fluid py-5" style="background-color:#ffecf0!important;">
+    <div class="col s12 breadcrumb-wrapper" style="padding-top: 2px;padding-bottom: 9px;">
+        <a href="#" class="breadcrumb">Home</a>
+        <svg width="16" height="27" viewBox="0 0 16 27" xmlns="#" class="breadcrumb-delim">
+            <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+        </svg>
+        <a class="breadcrumb" href="#">Customer Event</a>
+    </div>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 border-radius">
+                <div class="contact-form bg-light rounded p-5" style="background-color:white!important; border-radius:30px!important;box-shadow:0px 7px 13px #00000029!important">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <h1 class="section-title position-relative text-center mb-5">Customer Event</h1>
+                        </div>
+                    </div>
+
+                    <div id="success"></div>
+                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="txtCustName" placeholder="Name" required="required" data-validation-required-message="Please enter your name" style="width:96%;" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="txtMobileNo" placeholder="MobileNo" required="required" data-validation-required-message="Please enter your Mobile number" />
+                                @*<p class="help-block text-danger"></p>*@
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="txtWhatsappNo" placeholder="WhatsAppNo" required="required" data-validation-required-message="Please enter your whatsapp number" />
+                                @*<p class="help-block text-danger"></p>*@
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <select id="ddlEventType" class="form-control p-2 s2" placeholder="Event" required="required" data-validation-required-message="Please select event" style="width:112%;min-height:48px!important;">
+
+                                    <option value="select event">Event Type:</option>
+                                    <option value="Birthday">Birthday</option>
+                                    <option value="Anniversary">Anniversary</option>
+                                </select>
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+
+                        </div>
+                        @*<div class="row">
+                                <div class="col-sm-12 control-group">
+                                    <input type="text" class="form-control p-4" id="txtcity" placeholder="Email:" required="required" data-validation-required-message="Please enter your Mobile number" style="width:96%; />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>*@
+                        @*<div class="control-group">
+                                <textarea class="form-control p-4" rows="1" id="txtaddress" placeholder="Email" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>*@
+                    <div class="row">
+
+                        <div class="col-sm-6 control-group">
+                            <input id="txtEventDate" type="text" placeholder="Event Date:" onfocus="(this.type='date')" required="required"
+                                   class="form-control p-4" data-validation-required-message="Please enter your Delivery date" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="col-sm-6 control-group" style="padding-left:20px!important;">
+                            <label for="Image">Profile</label>
+                            <input id="File1" style="border:32px!important;" type="file" placeholder="Image" required="required"
+                                   data-validation-required-message="Please add Image" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                        <div>
+                            <input id="button1"style="border-radius:32px!important;" type="button" value="submit" class="btn btn-success btn-block py-3 px-5" onclick="saveCustEvent()" />
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/Pages/AddCategory.js"></script>
+
+<h2 style="text-align:center;">Add Category</h2>
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"></h3>
+        <nav aria-label="breadcrumb">
+
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 grid-margin stretch-card"></div>
+        <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Add Category</h3>
+                    <form class="forms-sample">
+
+                        <div class="form-group">
+                            <label for="maincat">Category Name</label>
+                            <input type="text" id="txtCategoryName" autocomplete="off" class="form-control" placeholder="Product Name" />
+                        </div>
+                        <input id="btnSubmit" type="button" value="SUBMIT" onclick="saveAddCategory();" class="btn btn-primary mr-2" />
+
+                    </form>
+                    <br />
+                    <h3 class="card-title">Category List</h3>
+                    <br />
+                    <div class="col-sm-5">
+                        <div class="col-sm-10">
+                            <table id="tblCategory" border="1" class="table-responsive-sm">
+                                <thead>
+                                    <tr>
+                                        <th>CategoryId</th>
+                                        <th>CategoryName</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="row">
+        <div class="col-sm-2 grid-margin stretch-card"></div>
+        <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Category List</h3>
+                    <br />
+                    <div class="col-sm-5">
+                        <div class="col-sm-10">
+                            <table id="tblCategory" border="1">
+                                <thead>
+                                    <tr>
+                                        <th>CategoryId</th>
+                                        <th>CategoryName</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+</div>
+
+
+

@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "UserBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/Pages/Booking.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#ddlsize").on('change', function (evt, params) {
+            var selected = $(this).val();
+            
+            if (selected != null) {
+                var hkgsize = Number($("#lblsize").text())/0.50;
+                var hkgprice = Number($("#txtprice").val()) / hkgsize;
+                var ordersize = Number(selected) / 0.50;
+                var totalprice = ordersize * hkgprice;
+                $("#txttlp").val(totalprice);
+            }
+        });
+        
+    });
+    
+</script>
+<input type="hidden" value="@ViewBag.Pid" id="hdnpid" />
+
+
+<body>
+
+    <div class="container-fluid py-5" style="background-color:#ffecf0;">
+        <div class="col s12 breadcrumb-wrapper" style="padding-top: 2px;padding-bottom: 9px;">
+            <a href="~/Home/Index" class="breadcrumb">Home</a>
+            <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="breadcrumb-delim">
+                <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+            </svg>
+            <a class="breadcrumb" href="~/Booking/UserBooking">User Booking</a>
+        </div>
+        <br />
+        <br />
+        <div class="containerform">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 responsive-responsive" style="align-content: center; padding-left: 50px !important; background-color: white; border-radius: 30px; box-shadow: 0px 7px 13px #00000029">
+                    <br />
+                    <div class="row img">
+                        <img src="" id="imgproduct" style="height:250px !important; width:250px !important;"  style="align-content:center!important;"/>
+                    </div>
+                    <div class="row">
+                        <ul class="product order-details" style="line-break:10px;font-size:24px;font-family:'Century Schoolbook'; color:black!important;">
+                            <li style="font-family: 'Century Schoolbook' !important; color: deeppink !important;"><span id="lblproductname"></span></li>
+                            <li>Flaviour: Chocolate</li>
+                            <li>Manufacturing Date: <span id="lblMdate"></span></li>
+                            <li>Expiry Date: <span id="lblEdate"></span></li>
+                            <li>Size: <span id="lblsize"></span>/<span id="lblUnit"></span></li>
+                            <li>Price:<span id="lblprice"></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 responsive-responsive" style="padding-left:2px;padding-right:0px!important;">
+
+                    <div class="contact-form bg-light rounded p-5" style="align-content: center; padding-left: 50px !important; background-color: white !important; border-radius: 30px !important; box-shadow: 0px 7px 13px #00000029">
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <h1 class="section-title position-relative text-center mb-5" style="color:deeppink!important;"> Order Now </h1>
+                            </div>
+                        </div>
+
+                        <div name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div>
+                                        <input type="text" class="form-control p-4" id="txtname" placeholder="Name:" required="required" data-validation-required-message="Please enter your name" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control p-4" id="txtnum" placeholder="Number:" required="required" data-validation-required-message="Please enter your Number" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <textarea class="form-control p-1" rows="7" id="txtaddress" placeholder="Address:" data-validation-required-message="Please enter your Address" style="width:108%;"></textarea>
+                                        <p class="help-block text-danger"></p>
+                                        <p class="help-block text-danger"></p>
+
+                                    </div>
+                                    <div class="p-6">
+                                        <select id="ddlscity" class="form-control p-2 s2" required="required" data-validation-required-message="please select your City" style="min-height:52px;width:108%;">
+
+                                            <option value="select city">Select your city:</option>
+                                            <option value="Akot">Akot</option>
+                                            <option value="Telhar">Telhar</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div>
+                                        <select id="ddlsize" class="form-control p-2 s1" required="required" data-validation-required-message="please please select your cake size" style="min-height:52px;width:108%;">
+                                            <option>Select your cake size:</option>
+                                            <option value="250">250gm</option>
+                                            <option value="500">500gm</option>
+                                            <option value="1000">1kg</option>
+                                            <option value="1500">1.5kg</option>
+                                            <option value="2000">2kg</option>
+                                            <option value="2500">2.5kg</option>
+                                            <option value="3000">3kg</option>
+                                            <option value="3500">3.5kg</option>
+                                            <option value="4000">4kg</option>
+                                            <option value="4500">4.5kg</option>
+                                            <option value="5000">5kg</option>
+                                            <option value="5500">5.5kg</option>
+                                            <option value="6000">6kg</option>
+                                            <option value="6500">6.5kg</option>
+                                            <option value="7000">7kg</option>
+                                            <option value="7500">7.5kg</option>
+                                            <option value="8000">8kg</option>
+
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control p-4" id="txtprice" placeholder="Price:" required="required" data-validation-required-message="Please enter your price" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class=" control-group">
+
+                                        <input id="txtddate" type="text" placeholder="Delivery Date:" onfocus="(this.type='date')" required="required"
+                                               class="form-control p-4" data-validation-required-message="Please enter your Delivery date" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control p-4" height="300" width="300" id="txtnote" placeholder="Message on cake:" required="required" data-validation-required-message="Please enter your Number" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class=" ">
+                                        <input type="text" class="form-control p-4" id="txttlp" placeholder=" Your Total Price:" required="required" data-validation-required-message="Please enter totalprice" style="width:96%;" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control p-4" id="txtProductId1" placeholder="Product Id:" value="@ViewBag.Pid" required="required" data-validation-required-message="Please enter your name" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12" style="padding-right:4px;">
+                                    <button class="btn btn-success btn-block py-2 px-5" type="submit"style="border-radius:32px!important;" id="sendMessageButton" onclick="saveorder()">Order Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "ContactAdmin";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/Pages/Contact.js"></script>
+<h2>Contact List</h2>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"></h3>
+        <nav aria-label="breadcrumb">
+
+        </nav>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-11 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Contact List</h3>
+                    <div class="col-sm-5">
+                        <div class="col-sm-10">
+                            <table id="tblcontact" border="1"class="table-responsive-lg">
+                                <thead>
+                                    <tr>
+                                        <th>ContactId</th>
+                                        <th>Name</th>
+                                        <th>MobileNo</th>
+                                        <th>Email</th>
+                                        <th>Message</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

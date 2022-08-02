@@ -1,0 +1,117 @@
+nav .brand-logo {
+    position: initial;
+    display: inline;
+}
+.product-card{
+    margin-bottom:7px;
+}
+.cat-products-wrapper.row .col.odd{
+    padding-right: 0;
+    padding-left: 0px;
+    border-right: 1px solid #f1f3f6;
+    border-bottom: 1px solid #f1f3f6;
+}
+
+.cat-products-wrapper.row .col.even{
+    padding-right: 0;
+    padding-left: 0;
+    border-bottom: 1px solid #f1f3f6;
+}
+.cat-products-wrapper.row .product-card{
+    margin-top:0;
+}
+.content-slider{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+.inner-div {
+    margin: 0% 3%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.content-slider::-webkit-scrollbar { 
+    display: none; 
+} 
+.content-slider img {border: 0;}
+
+.page-description-content iframe {
+    width: 300px !important;
+}
+.page-description-content table{
+    display: block;
+    overflow: scroll;
+}
+.currency-card-content-height {
+    height: 145px;
+}
+/*chat icon position*/
+.autoHeight{height:114px!important;}
+footer a {
+    color: #989898;
+}
+.currency{
+    text-align: center;
+    color: #222;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    position: relative;
+    font-size: 16px;
+}
+.interlinks_class .internal_link_slider {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    width: 100%;
+    float: left;
+    padding-bottom: 5px;
+}
+.interlinks_class .internal_link_slider a {
+    display: inline-block;
+    padding: 5px;
+}
+.page-product .pouplar_wrap{
+    padding: 0 !important;
+    margin-top: 0  !important;
+}
+.pouplar_wrap {
+    margin-top: 0  !important;
+}
+#userfeedback {
+        max-height: fit-content;
+        background: #fef1f6;
+        max-width: 500px;
+        margin: 0 auto;
+        z-index: 9999999 !important;
+}
+@media screen and (min-device-width:320px) and (max-width: 350px) { 
+    .footer-service-text {
+        font-size: 10px;
+    }
+}
+@media(max-width:990px){ 
+    .landscape #back-to-portrait{
+        display: flex !important;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: #340264;
+        z-index: 9999999;
+        text-align: center;
+        pointer-events: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    body.landscape{
+        overflow: hidden;          
+    }
+    .slick-prev, .slick-next{display: none;}
+    .slick-dots li{width: 15px;height: 15px;}
+    .slick-dots li button{height: 6px;width: 6px;}
+    .slick-dots li.slick-active button {width: 10px;}
+}
+

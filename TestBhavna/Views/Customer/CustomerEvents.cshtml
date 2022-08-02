@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "CustomerEvents";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/Pages/Event.js"></script>
+
+
+<h2 style="text-align:center;">Events List</h2>
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"></h3>
+        <nav aria-label="breadcrumb">
+        </nav>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Customer Events</h3>
+                    <div class="col-sm-5">
+                        <div class="col-sm-10">
+                            <table id="tblCustomerEvent" border="1" class="table-responsive-lg">
+                                <thead>
+                                    <tr>
+                                        <th>EventId</th>
+                                        <th>Customer Name</th>
+                                        <th>Mobile No.</th>
+                                        <th>WhatsApp No.</th>
+                                        <th>Event Type</th>
+                                        <th>Event Date</th>
+                                        <th>Photo</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

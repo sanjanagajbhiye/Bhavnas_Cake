@@ -1,0 +1,560 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<main>
+    <style>
+        body {
+            font-size: 100%;
+        }
+
+        .card .card-content .card-title {
+            margin-bottom: 0;
+        }
+
+        .text {
+            font-size: 17px;
+            color: #333333;
+        }
+
+        .button-style {
+            border: 1px solid #D68563;
+            font-size: 1.2vw;
+            margin-top: 0;
+            color: #FFFFFF;
+            border-radius: 5px;
+            padding: 0.7vw 0 0.7vw;
+            background-color: #DA4C64;
+        }
+
+        .card .card-content {
+            padding: 18px;
+        }
+
+        .first-row > .row > .col.l2.m2 {
+            display: inline-block;
+            max-width: 14.28% !important;
+            text-align: center !important;
+            padding: 0;
+            ;
+        }
+
+        .safe_portn .img_left {
+            width: 34%;
+            float: left;
+        }
+
+        .choose_gifts .select-wrapper input.select-dropdown {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .wide-range-text {
+            width: 85%;
+            margin-right: auto;
+            margin-left: auto;
+            left: 0;
+            right: 0;
+            background-color: #FFFFFF;
+            z-index: 2;
+            bottom: 18px;
+            position: absolute;
+            font-size: 14px;
+            padding: 1px 10px;
+            border-radius: 6px;
+            color: #666666;
+        }
+
+        .new-arrive > .row > .col.s4 {
+            padding: 0 0.3% 0;
+        }
+
+        .safe-delivery > .row > .col.s3 {
+            padding: 0 0.2% 0;
+        }
+
+        .desk_banners {
+            display: none;
+            transition: opacity 1s ease;
+            -webkit-transition: opacity 1s ease;
+        }
+
+            .desk_banners.slick-initialized {
+                visibility: visible;
+                opacity: 1;
+            }
+
+        .desk_banner img.lazyload {
+            max-height: 372px;
+        }
+
+        .desk_banner picture {
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            float: left;
+        }
+
+        .relation_dropdwn {
+            margin: 0;
+            max-height: 100%;
+            overflow-y: auto;
+            height: 400px;
+        }
+
+        .choose_option {
+            margin: 0 0 10px;
+            text-align: left;
+            padding: 0 0 20px;
+            width: 100%;
+        }
+
+            .choose_option li {
+                font-size: 14px;
+                color: #333;
+                line-height: 31px;
+                padding: 2px 10px;
+                width: 100%;
+                display: block;
+            }
+
+                .choose_option li:first-child {
+                    display: none;
+                }
+
+        .relation_dropdwn select {
+            display: none;
+        }
+
+        .label_finder span.selected {
+            color: #1BA23E !important;
+        }
+
+        .label_finder {
+            position: relative;
+        }
+
+            .label_finder:after {
+                content: "";
+                width: 40px;
+                height: 44px;
+                top: 0px;
+                right: -10px;
+                pointer-events: none;
+                background: #FFF url("//assets.winni.in/img/down-arrow-header.png") no-repeat 10px 12px;
+                position: absolute;
+            }
+
+        .card_hover .zoom_img {
+            border: none;
+        }
+
+        .card_hover:hover {
+            box-shadow: 0px 1px 5px #00000029;
+        }
+
+        .card_hover {
+            border-radius: 15px !important;
+            box-shadow: 0px 1px 2px #f5f5f5;
+            border: 1px solid #F5F5F5;
+            padding: 0 !important;
+            display: block;
+            overflow: hidden !important;
+            background-color: #F4F4F4 !important;
+        }
+
+        .zoom_img {
+            display: block;
+            max-width: 100%;
+            overflow: hidden;
+            border: 4px solid #fff;
+        }
+
+            .zoom_img img {
+                transform-origin: 50% 65%;
+                transition: transform 1s, filter 3s ease-in-out;
+                width: 100%;
+                display: block;
+            }
+
+        .card_hover:hover img {
+            transform: scale(1.1);
+        }
+
+        .occasion-cat {
+            font-size: 15px;
+            color: #666666;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .occasion-text {
+            display: block;
+            font-size: 24px;
+            color: #333;
+            line-height: 23px;
+            background: #ffffff;
+            z-index: 9;
+        }
+
+        .rel-cat {
+            font-size: 15px;
+            color: #666666;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .shop-by-rel-text {
+            display: block;
+            font-size: 24px;
+            color: #333;
+            line-height: 23px;
+            background: #ffffff;
+            z-index: 9;
+        }
+
+        .view_all {
+            border-radius: 5px;
+            border: 1px solid #DA0E68;
+            width: 10% !important;
+            font-size: 17px;
+            text-align: center;
+            color: #DA0E68;
+            float: right !important;
+            padding: 0.4% 1% 0.4% 1% !important;
+            background-color: white;
+        }
+
+        .wide-range {
+            padding: 10px 18px 50px;
+            margin: 0 auto;
+        }
+
+            .wide-range .col.l2.m2 {
+                padding: 0 9px 0 !important;
+            }
+
+            .wide-range img {
+                border-radius: 10px;
+                box-shadow: 0px 1px 5px #00000029;
+            }
+
+        .desktop-left-title {
+            padding-bottom: 11px !important;
+            color: #333333;
+            font-size: 30px !important;
+            text-align: right;
+            padding-right: 7% !important;
+        }
+
+        .desktop-title {
+            padding-bottom: 11px !important;
+            color: #333333;
+            margin: 0 auto;
+            padding-top: 0.9%;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .gift-love {
+            margin: 0 auto;
+            padding: 50px 13px 10px;
+        }
+
+            .gift-love .col.s3 {
+                padding: 0 9px 0 !important;
+            }
+
+        .best-seller .col.l3.s4 {
+            padding: 0 9px 0 !important;
+        }
+
+        .explore-more .col.s3 {
+            padding: 0 10px 2px !important;
+        }
+
+        .for-him {
+            padding-bottom: 2.7vw;
+            text-align: left;
+            font-size: 2vw
+        }
+
+        .for-her {
+            padding-bottom: 2.7vw;
+            text-align: left;
+            font-size: 2vw;
+        }
+
+        .him-her-section {
+            padding: 5.1vw 0 0 !important;
+        }
+
+        .desktopBanner_initial {
+            aspect-ratio: 1/0.28;
+        }
+
+        .desk_banners .slick-dots {
+            bottom: 18px;
+        }
+
+        .padding-vl {
+            padding: 0 9px 13px !important;
+        }
+
+        media(min-width:930px) and (max-width:1221px) {
+            .occasion-cat
+
+        {
+            font-size: 12px;
+        }
+
+        .occasion-text {
+            font-size: 18px;
+        }
+
+        .rel-cat {
+            font-size: 13px;
+        }
+
+        .shop-by-rel-text {
+            font-size: 19px;
+        }
+
+        }
+
+        media(min-width:930px) and (max-width:1200px) {
+            .button-style
+
+        {
+            font-size: 1.06vw
+        }
+
+        .wrapped {
+            font-size: 21px !important
+        }
+
+        }
+
+        media(min-width:1201px) and (max-width:1290px) {
+            .button-style
+
+        {
+            font-size: 1.08vw
+        }
+
+        }
+
+        media(min-width:1500px) and (max-width:1799px) {
+            .wrapped
+
+        {
+            font-size: 25px !important
+        }
+
+        }
+
+        media(min-width:1600px) and (max-width:1799px) {
+            .button-style
+
+        {
+            font-size: 19px
+        }
+
+        .for-him {
+            padding-bottom: 29px;
+        }
+
+        .for-her {
+            padding-bottom: 29px
+        }
+
+        .him-her-section {
+            padding: 85px 0 0 !important;
+        }
+
+        }
+
+        media screen and (min-width:1800px) {
+            .button-style
+
+        {
+            font-size: 19px;
+            padding: 18px 0;
+        }
+
+        .for-him,
+        .for-her {
+            padding-bottom: 29px;
+            font-size: 40px;
+        }
+
+        .him-her-section {
+            padding: 29px 0 0 !important;
+        }
+
+        .wrapped {
+            font-size: 27px !important
+        }
+
+        }
+
+        .img-radius {
+            border-radius: 7px
+        }
+
+        .wrapped {
+            left: 0;
+            right: 0;
+            position: absolute;
+            color: #333333;
+            font-size: 22px;
+            bottom: 8.5%;
+        }
+    </style>
+    <br />
+
+
+    <div class="row mb-0 section  hide-on-med-and-down" style="padding-bottom:7px;">
+        <div class="col s12" style="padding-bottom: 20px;">
+            <a href="../index.html" class="breadcrumb">Home</a>
+            <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="breadcrumb-delim">
+                <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+            </svg>
+            <a href="#!" class="breadcrumb">Snack</a>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row" style=" width:1300px; height:585px; padding:1.5% 18px 2%;margin:-1% auto 0;background-color:#FFF7F7;aspect-ratio: 1/0.233; ">
+            <div style="font-weight: 700; height: 77.8167px; width: 1313px; margin: 0 auto; font-size: 30px; color: #333333; text-align: center; padding: 1.7% 0 0.8%; padding-top: 10.5px;">
+                Snacks
+            </div>
+            <div class="col s6 m3 padding-vl">
+                <div class="card">
+                    <div style='position:relative; aspect-ratio: 1/0.88;'>
+                        <a class="center-align">
+                            <img class=" img-radius custom-shadow responsive-img " src="~/Content/img/cake-desktop/BK11.jpg" style="width:100%; padding-bottom: 150px;">
+                            <div class="wrapped">
+
+
+                                <h5 class="card-title">Photo Cake One</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">₹ 500</h6>
+                                <p class="btn" style="background-color: mistyrose; border-color: #e73c8b; width: 150px; color: crimson; border-radius:50px;">Order Now</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m3 padding-vl">
+                <div class="card">
+                    <div style='position:relative; aspect-ratio: 1/0.88;'>
+                        <a class="center-align">
+                            <img class=" img-radius custom-shadow responsive-img " src="~/Content/img/cake-desktop/BK22.jpg" style="width:100%; padding-bottom: 150px;">
+                            <div class="wrapped">
+
+                                <h5 class="card-title">Photo Cake Two</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">₹ 500</h6>
+                                <p class="btn" style="background-color: mistyrose; border-color: #e73c8b; width: 150px; color: crimson; border-radius:50px;">Order Now</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m3 padding-vl">
+                <div class="card">
+                    <div style='position:relative; aspect-ratio: 1/0.88;'>
+                        <a class="center-align">
+                            <img class=" img-radius custom-shadow responsive-img " src="~/Content/img/cake-desktop/BK3.jpg" style="width:100%; padding-bottom: 150px;">
+                            <div class="wrapped">
+
+                                <h5 class="card-title">Photo Cake three </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">₹ 500</h6>
+                                <p class="btn" style="background-color: mistyrose; border-color: #e73c8b; width: 150px; color: crimson; border-radius:50px;">Order Now</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m3 padding-vl">
+                <div class="card">
+                    <div style='position:relative; aspect-ratio: 1/0.88;'>
+                        <a class="center-align">
+                            <img class=" img-radius custom-shadow responsive-img " src="~/Content/img/cake-desktop/BK4.jpg" style="width:100%; padding-bottom: 150px;">
+                            <div class="wrapped">
+
+                                <h5 class="card-title">Photo Cake Four</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">₹ 500</h6>
+                                <p class="btn" style="background-color: mistyrose; border-color: #e73c8b; width: 150px; color: crimson; border-radius:50px;">Order Now</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row" style="width: 1300px; height: 585px; padding: 1.5% 18px 2%; margin: -1% auto 0; background-color: #FFF7F7; aspect-ratio: 1/0.233; ">
+        <div style="font-weight:700;margin:0 auto;font-size:30px;color:#333333;text-align:center;padding:1.7% 0 0.8%;"></div>
+        <div class="col s6 m3 padding-vl">
+            <div class="card">
+                <div style='position:relative; aspect-ratio: 1/0.88;'>
+                    <a class="center-align">
+                        <img class=" img-radius custom-shadow responsive-img " src="~/Content/img/cake-desktop/BK5.jpg" style="width:100%; padding-bottom: 150px;">
+                        <div class="wrapped">
+
+                            <h5 class="card-title">Photo Cake Five</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">₹ 500</h6>
+                            <p class="btn" style="background-color: mistyrose; border-color: #e73c8b; width: 150px; color: crimson; border-radius:50px;">Order Now</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col s6 m3 padding-vl">
+            <div class="card">
+                <div style='position:relative; aspect-ratio: 1/0.88;'>
+                    <a class="center-align">
+                        <img class=" img-radius custom-shadow responsive-img " src="~/Content/img/cake-desktop/BK6.jpg" style="width:100%; padding-bottom: 150px;">
+                        <div class="wrapped">
+
+                            <h5 class="card-title">Photo Cake Six</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">₹ 500</h6>
+                            <p class="btn" style="background-color: mistyrose; border-color: #e73c8b; width: 150px; color: crimson; border-radius:50px;">Order Now</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col s6 m3 padding-vl">
+            <div class="card">
+                <div style='position:relative; aspect-ratio: 1/0.88;'>
+                    <a class="center-align">
+                        <img class=" img-radius custom-shadow responsive-img " src="~/Content/img/cake-desktop/BK7.jpg" style="width:100%; padding-bottom: 150px;">
+                        <div class="wrapped">
+
+                            <h5 class="card-title">Photo Cake Seven</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">₹ 500</h6>
+                            <p class="btn" style="background-color: mistyrose; border-color: #e73c8b; width: 150px; color: crimson; border-radius:50px;">Order Now</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col s6 m3 padding-vl">
+            <div class="card">
+                <div style='position:relative; aspect-ratio: 1/0.88;'>
+                    <a class="center-align">
+                        <img class=" img-radius custom-shadow responsive-img " src="~/Content/img/cake-desktop/BK8.jpg" style="width:100%; padding-bottom: 150px;">
+                        <div class="wrapped">
+
+                            <h5 class="card-title">Photo Cake Eight</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">₹ 500</h6>
+                            <p class="btn" style="background-color: mistyrose; border-color: #e73c8b; width: 150px; color: crimson; border-radius:50px;">Order Now</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

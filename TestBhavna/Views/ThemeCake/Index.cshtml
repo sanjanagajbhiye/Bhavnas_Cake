@@ -1,0 +1,829 @@
+﻿`
+@{
+    ViewBag.Title = "Index";
+}
+<main>
+    <style>
+
+        body {
+            font-size: 100%;
+        }
+
+        .card .card-content .card-title {
+            margin-bottom: 0;
+        }
+
+        .text {
+            font-size: 17px;
+            color: #333333;
+        }
+
+        .button-style {
+            border: 1px solid #D68563;
+            font-size: 1.2vw;
+            margin-top: 0;
+            color: #FFFFFF;
+            border-radius: 5px;
+            padding: 0.7vw 0 0.7vw;
+            background-color: #DA4C64;
+        }
+
+        .card .card-content {
+            padding: 18px;
+        }
+
+        .first-row > .row > .col.l2.m2 {
+            display: inline-block;
+            max-width: 14.28% !important;
+            text-align: center !important;
+            padding: 0;
+            ;
+        }
+
+        .safe_portn .img_left {
+            width: 34%;
+            float: left;
+        }
+
+        .choose_gifts .select-wrapper input.select-dropdown {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .wide-range-text {
+            width: 85%;
+            margin-right: auto;
+            margin-left: auto;
+            left: 0;
+            right: 0;
+            background-color: #FFFFFF;
+            z-index: 2;
+            bottom: 18px;
+            position: absolute;
+            font-size: 14px;
+            padding: 1px 10px;
+            border-radius: 6px;
+            color: #666666;
+        }
+
+        .new-arrive > .row > .col.s4 {
+            padding: 0 0.3% 0;
+        }
+
+        .safe-delivery > .row > .col.s3 {
+            padding: 0 0.2% 0;
+        }
+
+        .desk_banners {
+            display: none;
+            transition: opacity 1s ease;
+            -webkit-transition: opacity 1s ease;
+        }
+
+            .desk_banners.slick-initialized {
+                visibility: visible;
+                opacity: 1;
+            }
+
+        .desk_banner img.lazyload {
+            max-height: 372px;
+        }
+
+        .desk_banner picture {
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            float: left;
+        }
+
+        .relation_dropdwn {
+            margin: 0;
+            max-height: 100%;
+            overflow-y: auto;
+            height: 400px;
+        }
+
+        .choose_option {
+            margin: 0 0 10px;
+            text-align: left;
+            padding: 0 0 20px;
+            width: 100%;
+        }
+
+            .choose_option li {
+                font-size: 14px;
+                color: #333;
+                line-height: 31px;
+                padding: 2px 10px;
+                width: 100%;
+                display: block;
+            }
+
+                .choose_option li:first-child {
+                    display: none;
+                }
+
+        .relation_dropdwn select {
+            display: none;
+        }
+
+        .label_finder span.selected {
+            color: #1BA23E !important;
+        }
+
+        .label_finder {
+            position: relative;
+        }
+
+            .label_finder:after {
+                content: "";
+                width: 40px;
+                height: 44px;
+                top: 0px;
+                right: -10px;
+                pointer-events: none;
+                background: #FFF url("//assets.i.in/img/down-arrow-header.png") no-repeat 10px 12px;
+                position: absolute;
+            }
+
+        .card_hover .zoom_img {
+            border: none;
+        }
+
+        .card_hover:hover {
+            box-shadow: 0px 1px 5px #00000029;
+        }
+
+        .card_hover {
+            border-radius: 15px !important;
+            box-shadow: 0px 1px 2px #f5f5f5;
+            border: 1px solid #F5F5F5;
+            padding: 0 !important;
+            display: block;
+            overflow: hidden !important;
+            background-color: #F4F4F4 !important;
+        }
+
+        .zoom_img {
+            display: block;
+            max-width: 100%;
+            overflow: hidden;
+            border: 4px solid #fff;
+        }
+
+            .zoom_img img {
+                transform-origin: 50% 65%;
+                transition: transform 1s, filter 3s ease-in-out;
+                width: 100%;
+                display: block;
+            }
+
+        .card_hover:hover img {
+            transform: scale(1.1);
+        }
+
+        .occasion-cat {
+            font-size: 15px;
+            color: #666666;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .occasion-text {
+            display: block;
+            font-size: 24px;
+            color: #333;
+            line-height: 23px;
+            background: #ffffff;
+            z-index: 9;
+        }
+
+        .rel-cat {
+            font-size: 15px;
+            color: #666666;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .shop-by-rel-text {
+            display: block;
+            font-size: 24px;
+            color: #333;
+            line-height: 23px;
+            background: #ffffff;
+            z-index: 9;
+        }
+
+        .view_all {
+            border-radius: 5px;
+            border: 1px solid #DA0E68;
+            width: 10% !important;
+            font-size: 17px;
+            text-align: center;
+            color: #DA0E68;
+            float: right !important;
+            padding: 0.4% 1% 0.4% 1% !important;
+            background-color: white;
+        }
+
+        .wide-range {
+            padding: 10px 18px 50px;
+            margin: 0 auto;
+        }
+
+            .wide-range .col.l2.m2 {
+                padding: 0 9px 0 !important;
+            }
+
+            .wide-range img {
+                border-radius: 10px;
+                box-shadow: 0px 1px 5px #00000029;
+            }
+
+        .desktop-left-title {
+            padding-bottom: 11px !important;
+            color: #333333;
+            font-size: 30px !important;
+            text-align: right;
+            padding-right: 7% !important;
+        }
+
+        .desktop-title {
+            padding-bottom: 11px !important;
+            color: #333333;
+            margin: 0 auto;
+            padding-top: 0.9%;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .gift-love {
+            margin: 0 auto;
+            padding: 50px 13px 10px;
+        }
+
+            .gift-love .col.s3 {
+                padding: 0 9px 0 !important;
+            }
+
+        .best-seller .col.l3.s4 {
+            padding: 0 9px 0 !important;
+        }
+
+        .explore-more .col.s3 {
+            padding: 0 10px 2px !important;
+        }
+
+        .for-him {
+            padding-bottom: 2.7vw;
+            text-align: left;
+            font-size: 2vw
+        }
+
+        .for-her {
+            padding-bottom: 2.7vw;
+            text-align: left;
+            font-size: 2vw;
+        }
+
+        .him-her-section {
+            padding: 5.1vw 0 0 !important;
+        }
+
+        .desktopBanner_initial {
+            aspect-ratio: 1/0.28;
+        }
+
+        .desk_banners .slick-dots {
+            bottom: 18px;
+        }
+
+        .padding-vl {
+            padding: 0 9px 13px !important;
+        }
+
+        media(min-width:930px) and (max-width:1221px) {
+            .occasion-cat
+
+        {
+            font-size: 12px;
+        }
+
+        .occasion-text {
+            font-size: 18px;
+        }
+
+        .rel-cat {
+            font-size: 13px;
+        }
+
+        .shop-by-rel-text {
+            font-size: 19px;
+        }
+
+        }
+
+        media(min-width:930px) and (max-width:1200px) {
+            .button-style
+
+        {
+            font-size: 1.06vw
+        }
+
+        .wrapped {
+            font-size: 21px !important
+        }
+
+        }
+
+        media(min-width:1201px) and (max-width:1290px) {
+            .button-style
+
+        {
+            font-size: 1.08vw
+        }
+
+        }
+
+        media(min-width:1500px) and (max-width:1799px) {
+            .wrapped
+
+        {
+            font-size: 25px !important
+        }
+
+        }
+
+        media(min-width:1600px) and (max-width:1799px) {
+            .button-style
+
+        {
+            font-size: 19px
+        }
+
+        .for-him {
+            padding-bottom: 29px;
+        }
+
+        .for-her {
+            padding-bottom: 29px
+        }
+
+        .him-her-section {
+            padding: 85px 0 0 !important;
+        }
+
+        }
+
+        media screen and (min-width:1800px) {
+            .button-style
+
+        {
+            font-size: 19px;
+            padding: 18px 0;
+        }
+
+        .for-him,
+        .for-her {
+            padding-bottom: 29px;
+            font-size: 40px;
+        }
+
+        .him-her-section {
+            padding: 29px 0 0 !important;
+        }
+
+        .wrapped {
+            font-size: 27px !important
+        }
+
+        }
+
+        .img-radius {
+            border-radius: 7px
+        }
+
+        .wrapped {
+            left: 0;
+            right: 0;
+            position: absolute;
+            color: #333333;
+            font-size: 22px;
+            bottom: 8.5%;
+        }
+    </style>
+    <div style="background-color: #FFF7F7; padding-top:0%; padding-right:2.2%; padding-left:2.2%;  margin:0 auto">
+        @*<div class="row" style="margin-bottom:6px;padding-right:2%;margin:0 auto">
+            <div class="col l8 s8 desktop-center-title">
+                Products
+            </div>
+            <a style="color:white" href="/cake">
+                <div class="col l4 s4 view_all">
+                    View ALL
+                </div>
+            </a>*@
+        <!--</div>-->
+        <div style="font-weight:700;margin:0 auto;font-size:30px;color:#333333;text-align:center;padding:1.7% 0 0.8%;">
+            Theme Cake
+        </div>
+        <div class="row best-seller" style="margin-bottom:0;padding:0 1% 1.5%;">
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/mouthwatering-combo/pd/30534" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                           <img src="~/Content/images/jungale cake.jpg" />
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Jungale Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span><span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="999">999/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="1,699">
+                                        1,699
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    41% off
+                                </span>
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" width="" />
+                            </a>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/red-roses-and-chocolate-cake/pd/21677" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+                                
+                                <img src="~/Content/images/Angarybuird Cake.JPG" />
+                              
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Angry birds Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="949">949/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="1,749">
+                                        1,749
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    46% off
+                                </span>
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/toothsome-chocolate-cake/pd/24280" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+
+                              
+
+                                <img src="~/Content/images/savefores cake.jpg" />
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Save forest cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="649">649/-</span>
+
+
+                            </div>
+
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/amazing-black-forest-cake/pd/19534" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+                                <img src="~/Content/images/rabit cake.jpg" />
+                              
+                                
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Rabit Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="499">499/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="599">
+                                        599
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    17% off
+                                </span>
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row best-seller" style="margin-bottom:0;padding:0 1% 1.5%;">
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/mouthwatering-combo/pd/30534" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+
+                                <img src="~/Content/images/makup.jpg" />
+                                
+                             
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Makeup Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="999">999/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="1,699">
+                                        1,699
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    41% off
+                                </span>
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/red-roses-and-chocolate-cake/pd/21677" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+                                <img src="~/Content/images/ghhg.jpg" />
+                                
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Cartoon Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="949">949/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="1,749">
+                                        1,749
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    46% off
+                                </span>
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/toothsome-chocolate-cake/pd/24280" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+                             
+                                <img src="~/Content/images/90.jpg" />
+
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Cartoon Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="649">649/-</span>
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/amazing-black-forest-cake/pd/19534" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+                                @*<img src="~/Content/images/1 (2).jpg" />*@
+                                <img src="~/Content/images/dr theme cake(1).jpg" />
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Doctor theme Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="499">499/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="599">
+                                        599
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    17% off
+                                </span>
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row best-seller" style="margin-bottom:0;padding:0 1% 1.5%;">
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/mouthwatering-combo/pd/30534" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+                                <img src="~/Content/images/1 (2).jpg" />
+                                @*<img src="~/Content/images/1(1).jpg" />*@
+
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 4px 4px 4px 4px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Baby Showar</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="999">999/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="1,699">
+                                        1,699
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    41% off
+                                </span>
+
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                
+                <div class="card card_hover">
+                    <a href="/red-roses-and-chocolate-cake/pd/21677" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+                                <img src="~/Content/images/95.jpg" />
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 12px 10px 10px 12px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">1st Birthday Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="949">949/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="1,749">
+                                        1,749
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    46% off
+                                </span>
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/toothsome-chocolate-cake/pd/24280" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+
+                                <img src="~/Content/images/car cake.jpg" />
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 12px 10px 10px 12px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Car Theme Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="649">649/-</span>
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col l3 s4 ">
+                <div class="card card_hover">
+                    <a href="/amazing-black-forest-cake/pd/19534" itemprop="url" target="_BLANK">
+                        <div class="zoom_img card-image">
+                            <picture>
+                                   <img src="~/Content/images/winecake2.jpg" />
+                            </picture>
+                        </div>
+                        <div class="card-content content-under-recent-image" style="padding: 12px 10px 10px 12px;text-align:center">
+                            <div class="center-align truncate" style="font-size:17px;color:#666666;">Wine Theme Cake</div>
+                            <div style="width:100%">
+                                <span style="font-weight:700;font-size:17px;color:#333333" class="moneySymbol">₹</span> <span style="font-weight:700;font-size:17px;color:#333333" class="moneyCal" data-inr="499">499/-</span>
+                                <span style="text-decoration:line-through;color:#666666; font-size:14px; padding-left: 3px; ">
+                                    <span class="moneySymbol">
+                                        ₹
+                                    </span>
+                                    <span style="color:#666666" class="discountRate" data-inr="599">
+                                        599
+                                    </span>
+                                </span>
+                                <span style="color:#DA0E83;font-weight: 700;font-size:12px;padding-left:5px">
+                                    17% off
+                                </span>
+
+                            </div>
+                            <a href="~/ProdDes/Index" id="Submit1">
+                                <input id="Submit1" type="submit" value="Order Now" class="btn-success" onclick="submit1" />
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="application/ld+json">
+        {
+            "context": "#",
+            "type": "Organization",
+            "url": "#",
+            "logo": "#",
+            "sameAs": [
+                "#",
+                "#",
+                "#"
+            ],
+            "contactPoint": [{
+                "type": "ContactPoint",
+                "telephone": "+91 - 7829463510",
+                "contactType": "customer service",
+                "availableLanguage": "English"
+            }]
+        }
+    </script>
+</main>
+
+

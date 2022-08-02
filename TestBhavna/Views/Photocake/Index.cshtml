@@ -1,0 +1,819 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<main>
+    <style type="text/css">
+            .containerBox {
+                position: relative;
+                display: block;
+                max-width: 1600px;
+                margin: 0 auto;
+            }
+            .containerBox h1 {
+                display: inline-block;
+                font-size: 18px; /*or whatever you want*/
+                color: #FFF;
+                margin:0;
+            }
+            .containerBox p, .containerBox table{
+                display:inline-block;
+                color:#FFF;
+            }
+            .containerBox table{
+                width:80%;
+                display:table;
+            }
+            .containerBox table td{
+                text-align: left;
+            }
+            .containerBox img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+            strong{
+                font-weight: 700;
+            }
+            .card .card-image img {
+                display: block;
+                border-radius: 2px 2px 0 0;
+                position:static;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+            }
+            .banner-images{
+                position: relative;
+                background: #F57558;
+                opacity: 0.9;
+                height: auto;
+                width: auto;
+                padding: 25px 17px 17px 17px;
+            }
+            .image-text {
+                font-size: 14px;
+                font-weight: 300;
+                color: #666666;
+                width: 100%;
+                background: #FFFFFF;
+                text-align: center;
+                padding: 15px;
+                margin-top: -5px;
+                box-shadow: 0px 1px 1px #00000029;
+            }
+            .image-text-combo{
+                bottom: 14%;
+                font-size: 14px;
+                font-weight: 300;
+                color: black
+            }
+            .imageDiv {
+                position: relative;
+                background: #FFFFFF;
+                padding: 5px 5px 0px 5px !important;
+            }
+            .corporate-product-card {
+                /*border: 1px solid;*/
+                padding: 13px 4px 4px 4px;
+                height: 50%;
+                box-shadow: 0px 1px 5px #00000029 !important;
+            }
+            .corporate-card-content {
+                padding: 15px 5px 8px 5px !important;
+                height: 70px;
+            }
+            .textarea.materialize-textarea:focus:not([readOnly]) + label {
+                color: #812990 !important;
+            }
+            .button-style {
+                border-radius: 92px;
+                padding: 12px 4px;
+                font-size: 14px;
+                cursor: pointer;
+                text-align:center;
+                color:#666666;
+                margin-top: 40px;
+                box-shadow: 0px 1px 1px #00000029;
+            }
+            .margin-set{
+                margin-left:4% !important;
+            }
+            .col-s2-width {
+                width:13% !important;
+                padding:0 7px !important;
+            }
+            .card-content-categories {
+                text-align: center;
+                color: #666666;
+                padding: 6% 6% 3%;
+                font-weight: 400;
+                font-size: 14px;
+            }
+            @*@media screen and (min-width: 1024px) and (max-width: 1080px) {
+                .button-style {
+                    font-size: 12px !important;
+                }
+            }
+            @media screen and (min-width: 1081px) and (max-width: 1170px) {
+                .button-style {
+                    font-size: 13px !important;
+                }
+            }*@
+            .border-width {
+                border-style: solid;
+                border-color: white;
+
+            }
+
+            .briefPageTitle h1{
+                font-size: 18px;margin: 0px; margin-top:10px; padding: 5px; padding-left:0; padding-right:0;
+            }
+
+
+    </style>
+    <div class="container">
+    </div>
+    <div class="container">
+        <div class="row m-0">
+            <div class="col s12 breadcrumb-wrapper" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="../index.html" class="breadcrumb" itemtype="https://schema.org/WebPage" itemprop="item">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="0" />
+                </span>
+
+                <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="breadcrumb-delim">
+                    <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+                </svg>
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="#!" class="breadcrumb" itemtype="https://schema.org/WebPage" itemprop="item">
+                        <span itemprop="name">Barbie Doll Cakes</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </span>
+            </div>
+
+        </div>
+
+        <div class="white" itemscope itemtype="http://schema.org/ItemList" style="padding:3px;">
+            <div class="section" style="padding: 0 10px;">
+                <div class="row" style="display: flex;">
+                    <div class="col s6 l4" style="padding: 0">
+                        <div style="color:#5a5a59; font-size: 21px;">
+                            Barbie Doll Cakes<span style="font-size:14px; padding-left:10px; font-weight: 300;">(10 items)</span>
+                        </div>
+                    </div>
+                    <div class="col s6 m5 l5" style="text-align:center;">
+                    </div>
+                    <div class="col s6 m5 l3">
+                        <div class='category-sort' style="clear: both;">
+                            <select class="browser-default" style="width:200px; height: 2.1rem; float:right;">
+                                <option value="1" data-uri="/cake/barbie-cakes?sort=popular&showMain=&minPrice=&maxPrice=">Popularity</option>
+                                <option value="2" data-uri="/cake/barbie-cakes?sort=priceLowHigh&showMain=&minPrice=&maxPrice=">Price - Low To High</option>
+                                <option value="3" data-uri="/cake/barbie-cakes?sort=priceHighLow&showMain=&minPrice=&maxPrice=">Price - High To Low</option>
+                                <option value="3" data-uri="/cake/barbie-cakes?sort=bestseller&showMain=&minPrice=&maxPrice=">Best Seller</option>
+                                <option value="3" data-uri="/cake/barbie-cakes?sort=premium&showMain=&minPrice=&maxPrice=">Premium</option>
+                            </select>
+                            <div style="float:right;padding-top:5px; margin-right:10px; color: #5a5a59; font-weight: 300;" class="hide-on-med-and-down">Sort By </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" style="padding:0px">
+                <ul class="row cat-products-wrapper">
+                    <link itemprop="url" href="barbie-cakes.html" />
+                    <meta itemprop="numberOfItems" content="10" />
+                    <li class="col s6 m3  product odd prd_cnt_mb_1" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="1" />
+                        <a href="../black-forest-barbie-doll-cake/pd/17907be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag green">BEST SELLER</div>
+                                <picture>
+                                    <source data-srcset="https://assets..in/product/primary/2014/6/33714.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../asset.in/img/Spinner-2.gif"
+                                         data-src="../../assets..in/product/primary/2014/6/337143cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Black Forest Barbie Doll Cake" title="Black Forest Barbie Doll Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Black Forest Barbie Doll Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="2,349" class="moneyCal">2,349</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                    <div style="display:inline-block;color:#e7711b;font-size:14px; ">4.9</div>
+                                    <div style="display:inline-block;">
+                                        <span class="stars" style="font-size: 18px" data-rating="4.9">4.9</span>
+                                        <span style="color: #888; font-size:13px;"> 18 Reviews </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product even prd_cnt_mb_2" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="2" />
+                        <a href="../barbie-doll-cake/pd/16151be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag green">BEST SELLER</div>
+                                <picture>
+                                    <source data-srcset="https://assets..in/product/primary/2014/6/33683.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assetsin/img/Spinner-2.gif"
+                                         data-src="../../assets.in/product/primary/2014/6/336833cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Barbie Doll  Cake" title="Barbie Doll  Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Barbie Doll  Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="3,349" class="moneyCal">3,349</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                    <div style="display:inline-block;color:#e7711b;font-size:14px; ">4.9</div>
+                                    <div style="display:inline-block;">
+                                        <span class="stars" style="font-size: 18px" data-rating="4.9">4.9</span>
+                                        <span style="color: #888; font-size:13px;"> 22 Reviews </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product odd prd_cnt_mb_3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="3" />
+                        <a href="../vanilla-barbie-doll-cake/pd/17906be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag green">BEST SELLER</div>
+                                <picture>
+                                    <source data-srcset="https://assets.in/product/primary/2021/8/53262.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assetsin/img/Spinner-2.gif"
+                                         data-src="../../assets..in/product/primary/2021/8/532623cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Vanilla Barbie Doll Cake" title="Vanilla Barbie Doll Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Vanilla Barbie Doll Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="4,099" class="moneyCal">4,099</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                    <div style="display:inline-block;color:#e7711b;font-size:14px; ">4.7</div>
+                                    <div style="display:inline-block;">
+                                        <span class="stars" style="font-size: 18px" data-rating="4.7">4.7</span>
+                                        <span style="color: #888; font-size:13px;"> 15 Reviews </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product even prd_cnt_mb_4" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="4" />
+                        <a href="../chocolate-barbie-cake/pd/17908be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag green">BEST SELLER</div>
+                                <picture>
+                                    <source data-srcset="https://assetsin/product/primary/2014/6/33715.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assets.in/img/Spinner-2.gif"
+                                         data-src="../../assets.in/product/primary/2014/6/337153cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Chocolate Barbie Cake" title="Chocolate Barbie Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Chocolate Barbie Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="4,099" class="moneyCal">4,099</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                    <div style="display:inline-block;color:#e7711b;font-size:14px; ">4.6</div>
+                                    <div style="display:inline-block;">
+                                        <span class="stars" style="font-size: 18px" data-rating="4.6">4.6</span>
+                                        <span style="color: #888; font-size:13px;"> 12 Reviews </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product odd prd_cnt_mb_5" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="5" />
+                        <a href="../rosy-rose-barbie-cake/pd/33077be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag red">PREMIUM</div>
+                                <picture>
+                                    <source data-srcset="https://assets..in/product/primary/2014/10/53252.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assetsn/img/Spinner-2.gif"
+                                         data-src="../../assetsin/product/primary/2014/10/532523cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Rosy Rose Barbie Cake" title="Rosy Rose Barbie Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Rosy Rose Barbie Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="2,349" class="moneyCal">2,349</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                    <div style="display:inline-block;color:#e7711b;font-size:14px; ">5.0</div>
+                                    <div style="display:inline-block;">
+                                        <span class="stars" style="font-size: 18px" data-rating="5.0">5.0</span>
+                                        <span style="color: #888; font-size:13px;"> 1 Reviews </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product even prd_cnt_mb_6" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="6" />
+                        <a href="../doll-cake/pd/16164be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag green">BEST SELLER</div>
+                                <picture>
+                                    <source data-srcset="https://assets.in/product/primary/2014/6/33687.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assets.n/img/Spinner-2.gif"
+                                         data-src="../../assets.n/product/primary/2014/6/336873cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Doll  Cake" title="Doll  Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Doll  Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="3,349" class="moneyCal">3,349</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                    <div style="display:inline-block;color:#e7711b;font-size:14px; ">4.9</div>
+                                    <div style="display:inline-block;">
+                                        <span class="stars" style="font-size: 18px" data-rating="4.9">4.9</span>
+                                        <span style="color: #888; font-size:13px;"> 15 Reviews </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product odd prd_cnt_mb_7" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="7" />
+                        <a href="../glory-barbie-cake/pd/33083be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag yellow-bg">NEW ARRIVAL</div>
+                                <picture>
+                                    <source data-srcset="https://assets.in/product/primary/2014/10/53258.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assetsin/img/Spinner-2.gif"
+                                         data-src="../../assetsin/product/primary/2014/10/532583cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Glory Barbie Cake" title="Glory Barbie Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Glory Barbie Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="2,349" class="moneyCal">2,349</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product even prd_cnt_mb_8" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="8" />
+                        <a href="../royal-queen-barbie-cake/pd/33079be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag red">PREMIUM</div>
+                                <picture>
+                                    <source data-srcset="https://assetin/product/primary/2014/10/53254.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assein/img/Spinner-2.gif"
+                                         data-src="../../assets.in/product/primary/2014/10/532543cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Royal Queen Barbie Cake" title="Royal Queen Barbie Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Royal Queen Barbie Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="2,349" class="moneyCal">2,349</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product odd prd_cnt_mb_9" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="9" />
+                        <a href="../sunshine-barbie-cake/pd/33075be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag red">PREMIUM</div>
+                                <picture>
+                                    <source data-srcset="https://assets..in/product/primary/2014/10/53250.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assetsin/img/Spinner-2.gif"
+                                         data-src="../../assetsin/product/primary/2014/10/532503cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Sunshine Barbie Cake" title="Sunshine Barbie Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Sunshine Barbie Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="3,549" class="moneyCal">3,549</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col s6 m3  product even prd_cnt_mb_10" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="padding:0 8px 9px !important;">
+                        <meta itemprop="position" content="10" />
+                        <a href="../baby-blue-barbi-cake/pd/33082be89?rfcid=311" itemprop="url" target="_BLANK">
+                            <div class="slide-card-without-city product-card z-depth-0">
+                                <div class="center-align wave-effect product-tag red">PREMIUM</div>
+                                <picture>
+                                    <source data-srcset="https://assets./product/primary/2014/10/53257.jpeg?dpr=1&w=400" type="image/webp" />
+                                    <img width="400" height="400" class="center-block responsive-img lazyload" src="../../assets.i.in/img/Spinner-2.gif"
+                                         data-src="../../assets.in/product/primary/2014/10/532573cf5.jpeg?dpr=1&amp;w=400"
+                                         alt="Baby Blue Barbi Cake" title="Baby Blue Barbi Cake" />
+                                </picture>
+                                <div class="slide-content-without-city" style="text-align:left;">
+                                    <div class="truncate" style="color:#666;text-transform: capitalize;">Baby Blue Barbi Cake</div>
+                                    <div class="price" style=" text-align:left;font-size:18px; color:#333;/*color:#ec018c;/*color:#222;*/">
+                                        <span style="font-size:15px;" class="moneySymbol">₹</span> <span data-inr="3,349" class="moneyCal">3,349</span>
+                                    </div>
+
+                                    <div style='font-size:13px;color:#888; min-height:19.5px;'>
+
+                                        Earliest Delivery:
+                                        <span style='color: #66b266; font-weight: 700;'>Today</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="page-load-status">
+                    <div class="infinite-scroll-last" style="margin-top:50px; text-align: center; font-weight: 300; margin-bottom: 50px; display:none;">
+
+                        <div style="text-transform: capitalize; font-size:30px;">
+                            All good things come to an end?
+                        </div>
+                        <div style="margin-top: 15px;font-size: 15px;font-size: 1.5rem; margin-bottom: 10px;">
+                            Not ati! We will keep adding more. Watch this space..
+                        </div>
+
+                        <!--- your page content goes here -->
+                        <button class="btn" id="goTop" style="font-weight:400;">Free ride to top</button>
+                    </div>
+                    <div id="feedbackDiv">
+                        <div class="col-xs-12" style="padding-top:15px; padding-bottom: 5px;">
+                            <h5 class="modal-title center" style="font-size: 20px; margin: 0 0 25px;">Did you find what you were looking for?</h5>
+                            <div class="center" id="ecfb">
+                                <button type="button" class="btn btn-default" id="ecustomerFeedBackYes" style="width: 25%;background: #fff;color: #333;border: 1px solid #d1d1d1;box-shadow: none;">
+                                    <span class="glyphicon" aria-hidden="true"></span> Yes
+                                </button>&nbsp;
+                                <button type="button" class="btn btn-default" id="eshowCustomerFeedBackForNo" style="width: 25%;margin-left: 2%; box-shadow: none;">
+                                    <span class="glyphicon" aria-hidden="true"></span> No
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="text-center" id="ecustomerFeedbackForNo">
+                            <p style="margin:0 0 15px; text-align: center;">Provide your feedback to help us improve</p>
+                            <div style="background: #fff; padding: 10px;">
+                                <form id="ecustomerFeedbackNo" action="https://www.in/customer/catalog/feedback" method="post">
+                                    <input type="hidden" name="categoryId" id="categoryId" value="311" />
+                                    <div style="width: 100%; text-align: left;">
+                                        <label for="issueType">Choose an option that describes your issue</label><br>
+                                        <select class="browser-default centered" id="issueType" name="issueType" style="width: 100%;">
+                                            <option value="">Please select an issue</option>
+                                            <option value="Variety or choices are limited">Variety or choices are limited</option>
+                                            <option value="My pincode is undeliverable">My pincode is undeliverable</option>
+                                            <option value="Search results are Irrelevant">Search results are Irrelevant</option>
+                                            <option value="Unable to find product">Unable to find product</option>
+                                            <option value="Sort/Filter are not helping">Sort/Filter are not helping</option>
+                                            <option value="Too many choices">Too many choices</option>
+                                            <option value="Above my budget">Above my budget</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <label for="issueDescription">Please share details about the issue you faced. Your feedback is highly valuable for us.</label>
+                                        <textarea name="issueDescription" required id="issueDescription" style="padding: 5px;width: 100%;height: 120px;resize: none;outline: none; border: 1px solid #E6E6E6;"></textarea>
+                                    </div>
+                                    <div class="center">
+                                        <button class="btn btn-primary" id="esaveCustomerFeedbackNo" type="button" style="background: #00AA36;width: 50%;box-shadow: none;margin: 10px 0 0;">
+                                            <span class="glyphicon" aria-hidden="true" style="padding-right: 5px;"></span>Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text height">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-description-content">
+                            <h1 style="text-align:justify">Order Barbie Cakes Online in India</h1>
+
+                            <p style="text-align:justify">Looking for a way to let your little princess escape in the world of barbies on her birthday? A Barbie cake will be an ideal option to dazzle and delight her in a sweetest possible way. That&rsquo;s why is here with Barbie theme cakes straight out of a fairy tale for your little birthday girl so that she can enjoy her special day with something tasty and gorgeous. Go for it! Bring such a wonderful delight using the online Barbie cake delivery services offered by us. These kinds of cakes will be surely upbeat your celebrations as well as bring a super cute smile on her face. So, order Barbie cakes online straight from the house ofni and get it delivered at your desired place.</p>
+                            <h2 style="text-align:justify">Order Barbie Birthday Cake&nbsp;Online to Let Her Princess Dream Comes True</h2>
+
+                            <p style="text-align:justify">Barbie! A most popular animated character among teen girls. From Barbie-Fairytopia or Barbie-Mermaid, Barbie of Swan Lake to Barbie as Rapunzel, so many movies but still the love for Barbies remain same till now. Like any little girl, your daughter may have that Dreamhouse, a box of clothes, shoes and hair brushes. Growing up with this cute doll is fantastic. Barbie is so much more than just a pretty doll for a girl. If your daughter&#39;s birthday is near, so it&#39;s a brilliant opportunity to make your little girl&#39;s dream of a princess comes true. She is the princess for you but now its high time to make her feel like a real princess.ni brings you the intricately designed Barbie birthday cake&nbsp;that you won&#39;t find anywhere. Give her a special surprise by gifting her most endearing thing in the form of cake.i very well understands the importance of cake in your celebration, therefore, always try to bring something new everytime. This time, we allow you to buy Barbie cakes online as this is one of the most picked&nbsp;delight when it comes to celebrating the birthday of your little angel.&nbsp;</p>
+
+                            <p style="text-align:justify">A cake is the charm of every celebration so it should be the best in taste and&nbsp;have the power to win her heart. This Barbie Doll cake has everything to make her feel special. Such a cake with a wow factor of Barbie will undoubtedly make her birthday celebration a memorable affair. With us, you can easily grab this delight for your little daughter. We also offer the Barbie photo cake made of the finest quality of ingredients using the professional baking skills. Just imagine the moment when your little sweetheart see her favorite character on the top of the cake. She will definitely be filled with immense happiness. Choose the desired cake flavor and type you want for her special day and place your order right now. In a few easy steps, you can easily order Barbie cake&nbsp;online and deliver your surprise with complete ease and care. Now, distances will be no longer&nbsp;a barrier in bringing a smile on her face.</p>
+
+                            <h2 style="text-align:justify">Why Not Surprise Your Daughter with Online Barbie Cakes Delivery on Her Birthday?</h2>
+
+                            <p style="text-align:justify">No matter how old she is, for parents she is still a princess who used to play with her best friend &ldquo;Barbie&rdquo; and now the time has come again to let recall those memories back and make her feel special. This time, celebrate your daughter&rsquo;s birthday by giving a pleasant surprise with the sweetness of fab Barbie <a href="../birthday-cakes.html">birthday cake</a>. A perfect surprise needs a perfect, surprising element and our fresh&nbsp;cakes can be the ideal choice for you. Therefore,  brings you Barbie Doll birthday cakes that&rsquo;s really the best example of perfection and hard-work.&nbsp;Our professional bakers have put efforts to make it the best for your astounding celebrations. It&rsquo;s your daughter&rsquo;s special day, so it needs to be extra special.&nbsp;So, surprise your daughter with the online Barbie&nbsp;cakes delivery at her doorstep. In this regard, our midnight delivery service can play a major role. After all, Who doesn&rsquo;t love the midnight surprises? All you have to do is to place your order and choose the midnight Barbie&nbsp;cakes delivery service. Our delivery experts will deliver your surprise at your desired place with whole ease.</p>
+
+                            <p style="text-align:justify">If you forgot her birthday and didn&rsquo;t have enough time to buy Barbie cake online from a nearby bakery shop, then i is here to the rescue.&nbsp;With the express delivery service, it&#39;s now possible to send Barbie photo cakes online to your daughter residing in any corner of the nation. Isn&rsquo;t this lovely idea to gift your daughter a special memory with this tasty delight? So what are you waiting for? It&rsquo;s a big day for your daughter! With the simple click of the mouse, you can easily <a href="../cake.html">order cake&nbsp;online</a> and send your love with its sweetness.</p>
+                            <div style="margin-top: 10px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 pl-0 pr-0">
+                <div class="pouplar_wrap" style="background-color:#FFF; margin-top:20px; padding:15px;float: left;width: 100%;">
+                    <h5 style="font-size:1.34rem; border-bottom: 1px solid rgb(230,230,230); padding-bottom: 5px;">
+                        <div style="color:#111;">
+                            Find more products
+                        </div>
+                    </h5>
+                    <div style="font-size:13px;" class="interlinks_class">
+                        <div>
+                            <span style='color:#888'>UPCOMING OCCASIONS :</span>
+                            <span class="internal_link_slider">
+                                <a href="../holi.html">Holi</a> |
+                                <a href="../gifts/mothers-day.html">Mother's Day</a> |
+                                <a href="../gifts/fathers-day.html"> Father's Day</a>
+                            </span>
+                        </div>
+                        <div style="margin-top:5px;">
+                            <span style='color:#888'>TOP SEARCHES :</span> <span class="internal_link_slider">
+                                <a href="../cake.html">Online cake delivery</a> | <a href="../flowers.html">Online flower delivery</a> | <a href="../gifts.html">Online Gifts Delivery </a> | <a href="../eggless-cake.html">Eggless Cake</a>
+                                | <a href="../personalised-gifts.html">Personalised Gifts</a> | <a href="../plants.html">Plants Online</a> | <a href="../chocolates.html">Chocolates Online</a>
+                            </span>
+                        </div>
+                        <div style="margin-top:5px;"><span style='color:#888'>BIRTHDAY :</span> <span class="internal_link_slider"><a href="../birthday-cakes.html">Birthday Cake</a> | <a href="../birthday-flowers.html">Birthday Flowers</a> | <a href="../birthday-gifts.html">Birthday Gifts</a></span></div>
+                        <div style="margin-top:5px;"><span style='color:#888'>ANNIVERSARY :</span><span class="internal_link_slider"> <a href="../anniversary-cakes.html">Anniversary Cake</a> | <a href="../anniversary-flowers.html">Anniversary Flowers</a> | <a href="../anniversary-gifts.html">Anniversary Gifts</a></span></div>
+                        <div style="margin-top: 5px;">
+                            <span style="color: #888">TOP CAKE CITIES :</span>
+                            <span class="internal_link_slider">
+                                <a href="bangalore.html">Cake Delivery in Bangalore </a> |
+                                <a href="delhi.html">Cake Delivery in Delhi</a> |
+                                <a href="mumbai.html">Cake Delivery in Mumbai</a> |
+                                <a href="pune.html">Cake Delivery in Pune</a> |
+                                <a href="gurgaon.html">Cake Delivery in Gurgaon</a> |
+                                <a href="hyderabad.html">Cake Delivery in Hyderabad</a> |
+                                <a href="chennai.html">Cake Delivery in Chennai</a> |
+                                <a href="kolkata.html">Cake Delivery in Kolkata </a> |
+                                <a href="noida.html">Cake Delivery in Noida</a> |
+                                <a href="ahmedabad.html">Cake Delivery in Ahmedabad</a> |
+                                <a href="chandigarh.html">Cake Delivery in Chandigarh</a> |
+                                <a href="jaipur.html"> Cake Delivery in Jaipur</a> |
+                                <a href="dehradun.html"> Cake Delivery in Dehradun</a> |
+                                <a href="patna.html">  Cake Delivery in Patna </a> |
+                                <a href="vizag.html"> Cake Delivery in Vizag</a> |
+                                <a href="bhopal.html">  Cake Delivery in Bhopal</a> |
+                                <a href="nagpur.html"> Cake Delivery in Nagpur </a> |
+                                <a href="indore.html">   Cake Delivery in Indore</a> |
+                                <a href="agra.html"> Cake Delivery in Agra </a> |
+                                <a href="lucknow.html"> Cake Delivery in Lucknow</a>
+                            </span>
+                        </div>
+                        <div style="margin-top: 5px;">
+                            <span style="color: #888">TOP FLOWER CITIES :</span>
+                            <span class="internal_link_slider">
+                                <a href="../flowers/bangalore.html"> Flowers Delivery in Bangalore</a> |
+                                <a href="../flowers/delhi.html">Flowers Delivery in Delhi </a> |
+                                <a href="../flowers/mumbai.html">Flowers Delivery in Mumbai </a> |
+                                <a href="../flowers/pune.html">Flowers Delivery in Pune </a> |
+                                <a href="../flowers/gurgaon.html"> Flowers Delivery in Gurgaon</a> |
+                                <a href="../flowers/hyderabad.html"> Flowers Delivery in Hyderabad</a> |
+                                <a href="../flowers/chennai.html"> Flowers Delivery in Chennai</a> |
+                                <a href="../flowers/kolkata.html"> Flowers Delivery in Kolkata</a> |
+                                <a href="../flowers/noida.html">Flowers Delivery in Noida </a> |
+                                <a href="../flowers/ahmedabad.html"> Flowers Delivery in Ahmedabad</a> |
+                                <a href="../flowers/chandigarh.html">  Flowers Delivery in Chandigarh</a> |
+                                <a href="../flowers/jaipur.html"> Flowers Delivery in Jaipur</a> |
+                                <a href="../flowers/dehradun.html"> Flowers Delivery in Dehradun</a> |
+                                <a href="../flowers/patna.html">  Flowers Delivery in Patna </a> |
+                                <a href="../flowers/vizag.html"> Flowers Delivery in Vizag</a> |
+                                <a href="../flowers/bhopal.html">  Flowers Delivery in Bhopal</a> |
+                                <a href="../flowers/nagpur.html"> Flowers Delivery in Nagpur </a> |
+                                <a href="../flowers/indore.html">   Flowers Delivery in Indore</a> |
+                                <a href="../flowers/agra.html"> Flowers Delivery in Agra </a> |
+                                <a href="../flowers/lucknow.html"> Flowers Delivery in Lucknow</a>
+                            </span>
+                        </div>
+                        <div style="margin-top: 5px;">
+                            <span style="color: #888">TOP GIFT CITIES :</span>
+                            <span class="internal_link_slider">
+                                <a href="../gifts/bangalore.html"> Gifts Delivery in Bangalore </a> |
+                                <a href="../gifts/delhi.html">Gifts Delivery in Delhi</a> |
+                                <a href="../gifts/mumbai.html">Gifts Delivery in Mumbai</a> |
+                                <a href="../gifts/pune.html">Gifts Delivery in Pune</a> |
+                                <a href="../gifts/gurgaon.html">Gifts Delivery in Gurgaon</a> |
+                                <a href="../gifts/hyderabad.html">Gifts Delivery in Hyderabad</a> |
+                                <a href="../gifts/chennai.html">Gifts Delivery in Chennai</a> |
+                                <a href="../gifts/kolkata.html">Gifts Delivery in Kolkata </a> |
+                                <a href="../gifts/noida.html">Gifts Delivery in Noida</a> |
+                                <a href="../gifts/ahmedabad.html">Gifts Delivery in Ahmedabad</a> |
+                                <a href="../gifts/chandigarh.html">Gifts Delivery in Chandigarh</a> |
+                                <a href="../gifts/jaipur.html"> Gifts Delivery in Jaipur</a> |
+                                <a href="../gifts/dehradun.html"> Gifts Delivery in Dehradun</a> |
+                                <a href="../gifts/patna.html">  Gifts Delivery in Patna </a> |
+                                <a href="../gifts/vizag.html"> Gifts Delivery in Vizag</a> |
+                                <a href="../gifts/bhopal.html">  Gifts Delivery in Bhopal</a> |
+                                <a href="../gifts/nagpur.html"> Gifts Delivery in Nagpur </a> |
+                                <a href="../gifts/indore.html">   Gifts Delivery in Indore</a> |
+                                <a href="../gifts/agra.html"> Gifts Delivery in Agra </a> |
+                                <a href="../gifts/lucknow.html"> Gifts Delivery in Lucknow</a>
+                            </span>
+                        </div>
+                        <div style="margin-top: 5px;">
+                            <span style="color: #888">Gift Ideas By Festivals and  Special Occasions :</span>
+                            <span class="internal_link_slider">
+                                <a href="../bhai-dooj.html"> Bhai Dooj </a> |
+                                <a href="../childrens-day.html"> Children's Day</a> |
+                                <a href="../christmas.html">Christmas</a> |
+                                <a href="../diwali.html">Diwali Gifts</a> |
+                                <a href="../gifts/fathers-day.html">Father's Day</a> |
+                                <a href="../friendship-day-gifts.html">Friendship Day</a> |
+                                <a href="../holi.html">Holi</a> |
+                                <a href="../gifts/independence-day.html">Independence Day </a> |
+                                <a href="../karva-chauth.html">Karva Chauth Gifts</a> |
+                                <a href="../lohri.html">Lohri </a> |
+                                <a href="../makar-sankranti.html">Makar Sankranti</a> |
+                                <a href="../gifts/mothers-day.html"> Mother's Day</a> |
+                                <a href="../new-year.html"> New Year</a> |
+                                <a href="../gifts/parents-day.html"> Parent's Day </a> |
+                                <a href="../send-rakhi.html"> Rakshabandhan</a> |
+                                <a href="../republic.html"> Republic Day</a> |
+                                <a href="../teachers-day.html"> Teacher's Day </a> |
+                                <a href="../valentine.html"> Valentine's Day Gifts</a> |
+                                <a href="../gifts/womens-day.html"> Women's Day </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="fuserModal" class="modal" style="width:100%;max-height: 95%;max-width: 480px !important;border-radius: 20px;">
+        <div class="row modal-content" style="padding: 0px;margin: 0px">
+            <div class="col s12" style="text-align: center;padding-top: 40px;">
+                <h2 style="margin-bottom: 0; font-size: 30px;font-weight: bold;">New User?</h2>
+                <p style="margin: 0; font-size: 16px;color: #707070;">Register and get <span style="font-weight: bold; color: #ED217C;">15% off</span> on first order</p>
+                <span class="modal-close" style="top:14px;right:18px;position: absolute;"><img style="max-width:21px;" src="../../assets..in/groot/2021/12/15/close.png" /></span>
+            </div>
+            <div class="col s12 l12 m12" style="margin-top:20px">
+                <form action="https://wwwin/customer/signup" method="GET">
+                    <input type="hidden" name="offer" value="10offcoupon">
+                    <input type="hidden" name="redirectURL" value="/cake/barbie-cakes">
+                    <div style="margin-top:0;align-items: center;display: grid;">
+                        <div class="row" style="height: 45px; width: 90%; margin: 0 auto 10px; position: relative;">
+                            <div class="col s12">
+                                <input type="text" name="name" placeholder="Name" style="border: none;height: 42px;margin: 0px;width: calc(100% - 40px); padding-left: 40px; border-bottom: 1px solid #c5c5c5;" />
+                                <img src="https://assets.n/groot/2021/12/7/popup/call.svg" style="width: 25px; position: absolute; left: 14px; top: 14px;">
+                            </div>
+                        </div>
+                        <div class="row" style="height: 45px; width: 90%; margin: 0 auto 10px; position: relative;">
+                            <div class="col s12">
+                                <input type="text" name="email" placeholder="Email" style="border: none;height: 42px;margin: 0px;width: calc(100% - 40px); padding-left: 40px; border-bottom: 1px solid #c5c5c5;" />
+                                <img src="../../assets.in/groot/2021/12/7/popup/mail.png" style="width: 25px; position: absolute; left: 14px; top: 14px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;margin-top: 20px">
+                        <button type="submit" class="btn" style="text-transform: uppercase; border-radius: 25px; height: 45px;width: 190px;box-shadow: none; font-weight: bold;font-size: 16px;">Register</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col s12 m12" style="margin-top:30px;text-align: center;">
+                <div class="col s4" style="display: grid;">
+                    <p style="margin: 0 0 5px; text-align: center;"><img src="https://assets.in/groot/2021/12/7/popup/free.svg" style="width: 50px;" /></p>
+                    <p style="color: #333; font-size: 13px !important; font-weight: 600; margin: 0;">No Cost Delivery</p>
+                    <p style="margin: 0;color: #707070;font-size: 10px !important;font-weight: 400;line-height: 12px;">Gratis On 6000+ Pincodes</p>
+                </div>
+                <div class="col s4" style="display: grid;">
+                    <p style="margin: 0 0 5px; text-align: center;"><img src="https://assets.in/groot/2021/12/7/popup/time.svg" style="width: 50px;" /></p>
+                    <p style="color: #333; font-size: 13px !important; font-weight: 600; margin: 0;">Time Slot Selection</p>
+                    <p style="margin: 0;color: #707070;font-size: 10px !important;font-weight: 400;line-height: 12px;">Get Shipment In 2 Hours</p>
+                </div>
+                <div class="col s4" style="display: grid;">
+                    <p style="margin: 0 0 5px; text-align: center;"><img src="https://assets.in/groot/2021/12/7/popup/delivery.svg" style="width: 50px;" /></p>
+                    <p style="color: #333; font-size: 13px !important; font-weight: 600; margin: 0;">Earliest Delivery</p>
+                    <p style="margin: 0;color: #707070;font-size: 10px !important;font-weight: 400;line-height: 12px;">Early Morning & Midnight</p>
+                </div>
+            </div>
+            <div class="col s12 m12" style="margin: 20px 0 0; text-align: center">
+                <h3 style="font-size: 16px;margin: 0;">Download Our App</h3>
+                <p style="margin:10px 0;">
+                    <a href="https://play.google.com/store/apps/details?id=ini.app" style="display: inline-block; margin: 0 5px;"><img src="../../assets.n/groot/2021/12/7/popup/playstore.png" style="width: 25px;"></a>
+                    <a href="https://apps.apple.com/in/app-cakes-flowers-gifts/id1080301515" style="display: inline-block; margin: 0 5px;"><img src="../../assetsin/groot/2021/12/7/popup/ios.png" style="width: 25px;"></a>
+                </p>
+            </div>
+            <p style="width: 100%; float: left;background: #FFF7F5; margin: 0;text-align: center;padding: 15px 0;font-size: 20px;">20 Million+ Satisfied Customers Worldwide</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="font-size:13px;">
+            <div class="col s12">
+                <div style="margin-bottom:15px; margin-top:15px;" itemtype="https://schema.org/Product" itemscope="">
+                    <div class="category-description std">
+                        <div><span itemprop="name">Barbie Doll Cakes online Delivery</span></div>
+                    </div>
+                    <div itemtype="https://schema.org/AggregateRating" itemscope="" itemprop="aggregateRating">Products in this category have been rated <span itemprop="ratingValue">4.9</span> out of <span itemprop="bestRating">5</span> based on <span itemprop="ratingCount">822</span> reviews.</div>
+                    <div itemtype="https://schema.org/AggregateOffer" itemscope="" itemprop="offers">
+                        We have a collection of <span itemprop="offerCount">10</span> Products
+                        <span itemprop="category"> </span> on sale, ranging from INR <span itemprop="lowPrice">299</span>
+                        <meta content="INR" itemprop="priceCurrency"> to INR <span itemprop="highPrice">3,818</span>
+                        <meta content="INR" itemprop="priceCurrency">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Criteo Category / Listing Tag -->
+    <script type="text/javascript" src="../../static.criteo.net/js/ld/ld.js" async="true"></script>
+    <script type="text/javascript">
+            window.criteo_q = window.criteo_q || [];
+            var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+            window.criteo_q.push(
+            {event: "setAccount", account: 57173}, // You should never update this line
+            {event: "setEmail", email: ""}, // Can be an empty string
+            {event: "setSiteType", type: deviceType},
+            {event: "viewList", item: [
+            17907
+            ,
+                16151
+            ,
+                17906
+
+            ]
+            }
+            );
+    </script>
+    <!-- END Criteo Category / Listing Tag -->
+
+    <script type="text/javascript">
+            var categoryDL = {
+            name: 'Barbie Doll Cakes',
+                    id: '311',
+                    itemCount: '10'
+            };
+    </script>
+    <input type="hidden" id="ntCustEmail" value="">
+    <input type="hidden" id="ntCustId" value="">
+</main>

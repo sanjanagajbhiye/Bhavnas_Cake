@@ -1,0 +1,1269 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/Pages/CustEvent.js"></script>
+
+<main>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Owl-carousel Cards Slider</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="~/Content/assets/css/thor/common-mobile-f29733dd0dfea4af5407c6c5e8a24361.css" rel="stylesheet" />
+        <link href="~/Content/assets/css/thor/common-da28f724ed3c58b5c61e81afb04f8cb8.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    </head>
+
+    <style>
+             body {
+                 font-size: 100%;
+             }
+
+             .card .card-content .card-title {
+                 margin-bottom: 0;
+             }
+
+             .text {
+                 font-size: 17px;
+                 color: #333333;
+             }
+
+             .button-style {
+                 border: 1px solid #D68563;
+                 font-size: 1.2vw;
+                 margin-top: 0;
+                 color: #FFFFFF;
+                 border-radius: 5px;
+                 padding: 0.7vw 0 0.7vw;
+                 background-color: #DA4C64;
+             }
+
+             .card .card-content {
+                 padding: 18px;
+             }
+
+             .first-row > .row > .col.l2.m2 {
+                 display: inline-block;
+                 max-width: 14.28% !important;
+                 text-align: center !important;
+                 padding: 0;
+                 ;
+             }
+
+             .safe_portn .img_left {
+                 width: 34%;
+                 float: left;
+             }
+
+             .choose_gifts .select-wrapper input.select-dropdown {
+                 margin-bottom: 0;
+                 border-bottom: none;
+             }
+
+             .wide-range-text {
+                 width: 85%;
+                 margin-right: auto;
+                 margin-left: auto;
+                 left: 0;
+                 right: 0;
+                 background-color: #FFFFFF;
+                 z-index: 2;
+                 bottom: 18px;
+                 position: absolute;
+                 font-size: 14px;
+                 padding: 1px 10px;
+                 border-radius: 6px;
+                 color: #666666;
+             }
+
+             .new-arrive > .row > .col.s4 {
+                 padding: 0 0.3% 0;
+             }
+
+             .safe-delivery > .row > .col.s3 {
+                 padding: 0 0.2% 0;
+             }
+
+             .desk_banners {
+                 display: none;
+                 transition: opacity 1s ease;
+                 -webkit-transition: opacity 1s ease;
+             }
+
+                 .desk_banners.slick-initialized {
+                     visibility: visible;
+                     opacity: 1;
+                 }
+
+             .desk_banner img.lazyload {
+                 max-height: 372px;
+             }
+
+             .desk_banner picture {
+                 text-align: center;
+                 width: 100%;
+                 margin: 0 auto;
+                 float: left;
+             }
+
+             .relation_dropdwn {
+                 margin: 0;
+                 max-height: 100%;
+                 overflow-y: auto;
+                 height: 400px;
+             }
+
+             .choose_option {
+                 margin: 0 0 10px;
+                 text-align: left;
+                 padding: 0 0 20px;
+                 width: 100%;
+             }
+
+                 .choose_option li {
+                     font-size: 14px;
+                     color: #333;
+                     line-height: 31px;
+                     padding: 2px 10px;
+                     width: 100%;
+                     display: block;
+                 }
+
+                     .choose_option li:first-child {
+                         display: none;
+                     }
+
+             .relation_dropdwn select {
+                 display: none;
+             }
+
+             .label_finder span.selected {
+                 color: #1BA23E !important;
+             }
+
+             .label_finder {
+                 position: relative;
+             }
+
+                 .label_finder:after {
+                     content: "";
+                     width: 40px;
+                     height: 44px;
+                     top: 0px;
+                     right: -10px;
+                     pointer-events: none;
+                     background: #FFF url("//assetsin/img/down-arrow-header.png") no-repeat 10px 12px;
+                     position: absolute;
+                 }
+
+             .card_hover .zoom_img {
+                 border: none;
+             }
+
+             .card_hover:hover {
+                 box-shadow: 0px 1px 5px #00000029;
+             }
+
+             .card_hover {
+                 border-radius: 15px !important;
+                 box-shadow: 0px 1px 2px #f5f5f5;
+                 border: 1px solid #F5F5F5;
+                 padding: 0 !important;
+                 display: block;
+                 overflow: hidden !important;
+                 background-color: #F4F4F4 !important;
+             }
+
+             .zoom_img {
+                 display: block;
+                 max-width: 100%;
+                 overflow: hidden;
+                 border: 4px solid #fff;
+             }
+
+                 .zoom_img img {
+                     transform-origin: 50% 65%;
+                     transition: transform 1s, filter 3s ease-in-out;
+                     width: 100%;
+                     display: block;
+                 }
+
+             .card_hover:hover img {
+                 transform: scale(1.1);
+             }
+
+             .occasion-cat {
+                 font-size: 15px;
+                 color: #666666;
+                 display: block;
+                 opacity: 0.9;
+             }
+
+             .occasion-text {
+                 display: block;
+                 font-size: 24px;
+                 color: #333;
+                 line-height: 23px;
+                 background: #ffffff;
+                 z-index: 9;
+             }
+
+             .rel-cat {
+                 font-size: 15px;
+                 color: #666666;
+                 display: block;
+                 opacity: 0.9;
+             }
+
+             .shop-by-rel-text {
+                 display: block;
+                 font-size: 24px;
+                 color: #333;
+                 line-height: 23px;
+                 background: #ffffff;
+                 z-index: 9;
+             }
+
+             .view_all {
+                 border-radius: 5px;
+                 border: 1px solid #DA0E68;
+                 width: 10% !important;
+                 font-size: 17px;
+                 text-align: center;
+                 color: #DA0E68;
+                 float: right !important;
+                 padding: 0.4% 1% 0.4% 1% !important;
+                 background-color: white;
+             }
+
+             .wide-range {
+                 padding: 10px 18px 50px;
+                 margin: 0 auto;
+             }
+
+                 .wide-range .col.l2.m2 {
+                     padding: 0 9px 0 !important;
+                 }
+
+                 .wide-range img {
+                     border-radius: 10px;
+                     box-shadow: 0px 1px 5px #00000029;
+                 }
+
+             .desktop-left-title {
+                 padding-bottom: 11px !important;
+                 color: #333333;
+                 font-size: 30px !important;
+                 text-align: right;
+                 padding-right: 7% !important;
+             }
+
+             .desktop-title {
+                 padding-bottom: 11px !important;
+                 color: #333333;
+                 margin: 0 auto;
+                 padding-top: 0.9%;
+                 text-align: center;
+                 font-size: 30px;
+             }
+
+             .gift-love {
+                 margin: 0 auto;
+                 padding: 50px 13px 10px;
+             }
+
+                 .gift-love .col.s3 {
+                     padding: 0 9px 0 !important;
+                 }
+
+             .best-seller .col.l3.s4 {
+                 padding: 0 9px 0 !important;
+             }
+
+             .explore-more .col.s3 {
+                 padding: 0 10px 2px !important;
+             }
+
+             .for-him {
+                 padding-bottom: 2.7vw;
+                 text-align: left;
+                 font-size: 2vw
+             }
+
+             .for-her {
+                 padding-bottom: 2.7vw;
+                 text-align: left;
+                 font-size: 2vw;
+             }
+
+             .him-her-section {
+                 padding: 5.1vw 0 0 !important;
+             }
+
+             .desktopBanner_initial {
+                 aspect-ratio: 1/0.28;
+             }
+
+             .desk_banners .slick-dots {
+                 bottom: 18px;
+             }
+
+             .padding-vl {
+                 padding: 0 9px 13px !important;
+             }
+
+             media(min-width:930px) and (max-width:1221px) {
+                 .occasion-cat
+
+             {
+                 font-size: 12px;
+             }
+
+             .occasion-text {
+                 font-size: 18px;
+             }
+
+             .rel-cat {
+                 font-size: 13px;
+             }
+
+             .shop-by-rel-text {
+                 font-size: 19px;
+             }
+
+             }
+
+             media(min-width:930px) and (max-width:1200px) {
+                 .button-style
+
+             {
+                 font-size: 1.06vw
+             }
+
+             .wrapped {
+                 font-size: 21px !important
+             }
+
+             }
+
+             media(min-width:1201px) and (max-width:1290px) {
+                 .button-style
+
+             {
+                 font-size: 1.08vw
+             }
+
+             }
+
+             media(min-width:1500px) and (max-width:1799px) {
+                 .wrapped
+
+             {
+                 font-size: 25px !important
+             }
+
+             }
+
+             media(min-width:1600px) and (max-width:1799px) {
+                 .button-style
+
+             {
+                 font-size: 19px
+             }
+
+             .for-him {
+                 padding-bottom: 29px;
+             }
+
+             .for-her {
+                 padding-bottom: 29px
+             }
+
+             .him-her-section {
+                 padding: 85px 0 0 !important;
+             }
+
+             }
+
+             media screen and (min-width:1800px) {
+                 .button-style
+
+             {
+                 font-size: 19px;
+                 padding: 18px 0;
+             }
+
+             .for-him,
+             .for-her {
+                 padding-bottom: 29px;
+                 font-size: 40px;
+             }
+
+             .him-her-section {
+                 padding: 29px 0 0 !important;
+             }
+
+             .wrapped {
+                 font-size: 27px !important
+             }
+
+             }
+
+             .img-radius {
+                 border-radius: 7px
+             }
+
+             .wrapped {
+                 left: 0;
+                 right: 0;
+                 position: absolute;
+                 color: #333333;
+                 font-size: 22px;
+             }
+
+             .hero-image-girl {
+                 background-image: url('../../Content/img/desktop-home-21/GilCakeBanner.jpg');
+                 width: 1506px;
+                 height: 278px;
+                 background-position: center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 position: relative;
+             }
+
+             .hero-image-boy {
+                 background-image: url("../../Content/img/desktop-home-21/Boy'sCakeBanner.jpg");
+                 width: 1506px;
+                 height: 278px;
+                 background-position: center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 position: relative;
+             }
+
+             .hero-image-photo {
+                 background-image: url("../../Content/img/desktop-home-22/dl.beatsnoop.com-600px-1_20220426082111_cartoon_x4 (1).jpg");
+                 width: 1506px;
+                 height: 278px;
+                 background-position: center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 position: relative;
+             }
+
+             .hero-image-theme {
+                 background-image: url('../../Content/sf-img/live/visuals/home/desktop/2022/4/postSpecialThemeCake (1).png');
+                 width: 1506px;
+                 
+                 background-position: center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 position: relative;
+             }
+
+             .hero-image-snack {
+                 background-image: url('../../Content/img/desktop-home-21/S_back_img.jpg');
+                 width: 1506px;
+                 height: 278px;
+                 background-position: center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 position: relative;
+             }
+
+             .hero-image-bakery {
+                 background-image: url('../../Content/img/desktop-home-21/Oreo_back_img.jpg');
+                 width: 1506px;
+                 height: 278px;
+                 background-position: center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 position: relative;
+             }
+
+             .hero-image-relation {
+                 background-image: url('../../Content/img/desktop-home-22/2Banner.jpg');
+                 width: 657.017px;
+                 height: 231.633px;
+                 background-position: left;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 position: relative;
+                 display: inline-block;
+             }
+
+             .hero-image-occasion {
+                 background-image: url('../../Content/img/desktop-home-22/1Banner.jpg');
+                 width: 657.017px;
+                 height: 231.633px;
+                 background-position: right;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 position: relative;
+                 display: inline-block;
+             }
+
+             .hero-text {
+                 text-align: center;
+                 position: absolute;
+                 top: 50%;
+                 left: 50%;
+                 transform: translate(-50%, -50%);
+                 color: white;
+             }
+
+                 .hero-text button {
+                     border: none;
+                     outline: 0;
+                     display: inline-block;
+                     padding: 10px 25px;
+                     color: black;
+                     background-color: white;
+                     text-align: center;
+                     cursor: pointer;
+                 }
+
+                     .hero-text button:hover {
+                         background-color: peachpuff;
+                         color: white;
+                     }
+
+             /* * {
+                 margin: 0;
+                 padding: 0;
+                 box-sizing: border-box;
+                 font-family: 'Poppins', sans-serif;
+             }
+             .slider {
+                 width: 1500px;
+                 display: flex;
+             }
+
+                 .slider .slide-card {
+                     flex: 1;
+                     margin: 0 10px;
+                     background: #fff;
+                     padding-bottom: 0px;
+                 }
+
+                     .slider .slide-card .img {
+                         height: 200px;
+                         width: 100%;
+                     }
+
+                         .slider .slide-card .img img {
+                             height: 100%;
+                             width: 100%;
+                             object-fit: cover;
+                         }
+
+                     .slider .slide-card .content {
+                         padding: 10px 20px;
+                     }
+
+             .slide-card .content .title {
+                 font-size: 25px;
+                 font-weight: 600;
+             }
+
+             .slide-card .content .sub-title {
+                 font-size: 20px;
+                 font-weight: 600;
+                 color: #e74c3c;
+                 line-height: 20px;
+             }
+
+             .slide-card .content p {
+                 text-align: justify;
+                 margin: 10px 0;
+             }
+
+             .slide-card .content .btn {
+                 display: block;
+                 text-align: center;
+                 margin: 10px 0;
+             }
+
+                 .slide-card .content .btn button {
+                     background: #e74c3c;
+                     color: #fff;
+                     border: none;
+                     outline: none;
+                     font-size: 17px;
+                     padding: 5px 8px;
+                     border-radius: 5px;
+                     cursor: pointer;
+                     transition: 0.2s;
+                 }
+
+                     .slide-card .content .btn button:hover {
+                         transform: scale(0.9);
+                     }
+        */
+    </style>
+    <div class="max-container">
+        <div class="white" style="padding:0 1% 0;margin:0 auto;padding-bottom:20px!important;">
+            <section class="home-slider owl-carousel">
+                <div class="desktopBanner_initial center-align">
+                    <a class="center-align" href="#">
+                        <div class="slider-item " style="background-image: url('../../Content/img/cake-desktop/banner1.jpg'); ">
+                            <div class="overlay"></div>
+                            <div class="container">
+                                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="slider-item" style="background-image: url('../../Content/img/cake-desktop/banner2.jpg'); ">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item" style="background-image: url('../../Content/img/cake-desktop/banner3.jpg'); ">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <br />
+        <div class="row" style="align-content:center!important;">
+            <div class="col-sm-12" style="background-color: #ffecf0!important;">
+                <div class="row justify-content-center" style="padding-left:75px;padding-right:50px;">
+                    <div style="font-weight: 700; height: 77.8167px; width: 1313px; margin: 0 auto; font-size: 30px; color: #333333; text-align: center; padding: 1.7% 0 0.8%; padding-top: 10.5px;">
+                        Browse By Flavours
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/black forest.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    BlackForest Cake
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/Butterscotch.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    Butterscotch Cake
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/Chocolate.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    Chocolate Cake
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/Kiwi.jpeg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    Kiwi Cake
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/Mango.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    Mango Cake
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center" style="padding-left:75px;padding-right:50px;">
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/Mixfruit.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    MixFruit Cake
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/Oreo.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    Oreo Cake
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/Pineapple.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    Pineapple Cake
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/Vanila.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    Vnila Cake
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class='card' style="width:120%;">
+                            <div class='zoom_img card-image'>
+                                <a href="~/Product/AllCakes">
+                                    <img src="~/Content/img/Cake/White forest.jpg" />
+                                </a>
+                            </div>
+                            <div class='card-content content-under-recent-image' style='padding: 4px 4px 4px 4px;text-align:center'>
+                                <div class='center-align' style='font-size:17px;color:#666666;'>
+                                    WhiteForest Cake
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="white" style="padding: 0 1% 0; margin: 0 auto; padding-bottom: 20px !important;">
+            <div style='background-image: url("../../Content/img/cake-desktop/postSpecialThemeCake (1).png"); background-repeat: no-repeat; background-size: 100% 100%; text-align: center; margin: 0 auto;'>
+                <a href="~/Product/PhotoCake">
+                    <div class="row" style="margin:0 auto">
+
+                        <div class="col l5 m5" style="padding:8% 0 9%;height:353px!important;">
+                            <div style="color:blueviolet;font-size:50px;font-family:Elephant;align-content:center">
+                                
+                                <span style="display: block;"> </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="white" style="padding: 0 1% 0; margin: 0 auto; padding-bottom: 20px !important;">
+            <div style='background-image: url("../../Content/img/desktop-home-22/dl.beatsnoop.com-600px-1_20220426082111_cartoon_x4 (1).jpg"); background-repeat: no-repeat; background-size: 100% 100%; text-align: center; margin: 0 auto;'>
+                <a href="~/Product/PhotoCake">
+                    <div class="row" style="margin:0 auto">
+
+                        <div class="col l5 m5" style="padding:8% 0 9%;">
+                            <div style="color:blueviolet;font-size:50px;font-family:Elephant;align-content:center">
+                                Photo Cake
+                                <span style="display: block;"> </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+
+        <div class="white" style="padding: 0 1% 0; margin: 0 auto; padding-bottom: 20px !important;">
+            <div style='background-image: url("../../Content/img/desktop-home-21/GilCakeBanner.jpg"); background-repeat: no-repeat; background-size: 100% 100%; text-align: center; margin: 0 auto;'>
+                <a href="~/Product/AllCake?cid=2">
+                    <div class="row" style="margin:0 auto">
+
+                        <div class="col l5 m5" style="padding:8% 0 9%;">
+                            <div style="color:blueviolet;font-size:50px;font-family:Elephant;align-content:center">
+                                Girls Cake
+                                <span style="display: block;"> </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="white" style="padding: 0 1% 0; margin: 0 auto; padding-bottom: 20px !important;">
+            <div style='background-image: url("../../Content/img/desktop-home-21/BoysCakeBanner.jpg"); background-repeat: no-repeat; background-size: 100% 100%; text-align: center; margin: 0 auto;'>
+                <a href="~/Product/AllCakes?cid=4">
+                    <div class="row" style="margin:0 auto">
+                        <div class="col l5 m5" style="padding:8% 0 9%;">
+                            <div style="color:blueviolet;font-size:50px;font-family:Elephant;align-content:center">
+                                Boys Cake
+                                <span style="display: block;"> </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var itemsMainDiv = ('.MultiCarousel');
+                var itemsDiv = ('.MultiCarousel-inner');
+                var itemWidth = "";
+
+
+
+                $('.leftLst, .rightLst').click(function () {
+                    var condition = $(this).hasClass("leftLst");
+                    if (condition)
+                        click(0, this);
+                    else
+                        click(1, this)
+                });
+
+                ResCarouselSize();
+                $(window).resize(function () {
+                    ResCarouselSize();
+                });
+
+                //this function define the size of the items
+                function ResCarouselSize() {
+                    var incno = 0;
+                    var dataItems = ("data-items");
+                    var itemClass = ('.item');
+                    var id = 0;
+                    var btnParentSb = '';
+                    var itemsSplit = '';
+                    var sampwidth = $(itemsMainDiv).width();
+                    var bodyWidth = $('body').width();
+                    $(itemsDiv).each(function () {
+                        id = id + 1;
+                        var itemNumbers = $(this).find(itemClass).length;
+                        btnParentSb = $(this).parent().attr(dataItems);
+                        itemsSplit = btnParentSb.split(',');
+                        $(this).parent().attr("id", "MultiCarousel" + id);
+
+
+                        if (bodyWidth >= 1200) {
+                            incno = itemsSplit[3];
+                            itemWidth = sampwidth / incno;
+                        }
+                        else if (bodyWidth >= 992) {
+                            incno = itemsSplit[2];
+                            itemWidth = sampwidth / incno;
+                        }
+                        else if (bodyWidth >= 768) {
+                            incno = itemsSplit[1];
+                            itemWidth = sampwidth / incno;
+                        }
+                        else {
+                            incno = itemsSplit[0];
+                            itemWidth = sampwidth / incno;
+                        }
+                        $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+                        $(this).find(itemClass).each(function () {
+                            $(this).outerWidth(itemWidth);
+                        });
+
+                        $(".leftLst").addClass("over");
+                        $(".rightLst").removeClass("over");
+
+                    });
+                }
+
+
+                //this function used to move the items
+                function ResCarousel(e, el, s) {
+                    var leftBtn = ('.leftLst');
+                    var rightBtn = ('.rightLst');
+                    var translateXval = '';
+                    var divStyle = $(el + ' ' + itemsDiv).css('transform');
+                    var values = divStyle.match(/-?[\d\.]+/g);
+                    var xds = Math.abs(values[4]);
+                    if (e == 0) {
+                        translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                        $(el + ' ' + rightBtn).removeClass("over");
+
+                        if (translateXval <= itemWidth / 2) {
+                            translateXval = 0;
+                            $(el + ' ' + leftBtn).addClass("over");
+                        }
+                    }
+                    else if (e == 1) {
+                        var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                        translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                        $(el + ' ' + leftBtn).removeClass("over");
+
+                        if (translateXval >= itemsCondition - itemWidth / 2) {
+                            translateXval = itemsCondition;
+                            $(el + ' ' + rightBtn).addClass("over");
+                        }
+                    }
+                    $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+                }
+
+                //It is used to get some elements from btn
+                function click(ell, ee) {
+                    var Parent = "#" + $(ee).parent().attr("id");
+                    var slide = $(Parent).attr("data-slide");
+                    ResCarousel(ell, Parent, slide);
+                }
+
+            });
+        </script>
+        <style>
+            .MultiCarousel {
+                float: left;
+                overflow: hidden;
+                padding: 15px;
+                width: 100%;
+                position: relative;
+                align-content: center !important;
+            }
+
+                .MultiCarousel .MultiCarousel-inner {
+                    transition: 1s ease all;
+                    float: left;
+                }
+
+                    .MultiCarousel .MultiCarousel-inner .item {
+                        float: left;
+                    }
+
+                        .MultiCarousel .MultiCarousel-inner .item > div {
+                            text-align: center;
+                            padding: 10px;
+                            margin: 10px;
+                            background: #fff;
+                            color: #666;
+                        }
+
+                .MultiCarousel .leftLst, .MultiCarousel .rightLst {
+                    position: absolute;
+                    border-radius: 50%;
+                    top: calc(50% - 20px);
+                }
+
+                .MultiCarousel .leftLst {
+                    left: 0;
+                }
+
+                .MultiCarousel .rightLst {
+                    right: 0;
+                }
+
+                    .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
+                        pointer-events: none;
+                        background: #ccc;
+                    }
+        </style>
+
+
+        @*<div class="white" style="padding:0 1% 0;margin:0 auto;height:350px;">
+
+            <div class="slider-item card" style="padding-top: 50px !important; background-color:pink;max-width:1568px !important;padding-right:0px!important;">
+                <div class="slider owl-carousel" style="padding-left:10px !important;padding-right:0px !important;">
+                    <div class="slide-card" style="padding-left: 50px !important; padding-right: 50px !important;">
+                        <div class="img" style="height:250px !important;width: 250px !important;">
+                            <a href="~/Product/BoyCake"><img src="~/Content/img/cake-desktop/B7.jpg" alt=""></a>
+
+                        </div>
+                        <div class="content" style="align-content:center !important">
+                            <div class="title">
+                                Cartoon Cake
+                            </div>
+                            <div class="sub-title">
+                                Starting from ₹ 600
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="slide-card" style="padding-left: 50px !important; padding-right: 50px !important;">
+                        <div class="img" style="height:250px !important;width: 250px !important;">
+                            <a href="~/Product/BoyCake"><img src="~/Content/img/cake-desktop/B4.JPG" alt=""></a>
+                        </div>
+
+                        <div class="content" style="align-content:center !important">
+                            <div class="title">
+                                Photo Cake
+                            </div>
+                            <div class="sub-title">
+                                Starting from ₹ 700
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-card" style="padding-left: 50px !important; padding-right: 50px !important;">
+                        <div class="img" style="height:250px !important;width: 250px !important;">
+                            <a href="~/Product/BoyCake"><img src="~/Content/img/cake-desktop/G2.jpg" alt=""></a>
+
+                        </div>
+                        <div class="content" style="align-content:center !important">
+                            <div class="title">
+                                Bake
+                            </div>
+                            <div class="sub-title">
+                                Starting from ₹ 600
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>*@
+
+        <div class="row">
+            <div style="font-weight: 700; height: 77.8167px; width: 1313px; margin: 0 auto; font-size: 30px; color: #333333; text-align: center; padding: 1.7% 0 0.8%; padding-top: 10.5px;">
+                Our Themes
+            </div>
+            <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                <div class="MultiCarousel-inner">
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme1.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme2.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme3.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme4.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme5.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme6.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme7.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme8.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme9.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pad15">
+                            <a href="~/Product/BoyCake"><img style="height:200px;width:200px;" src="~/Content/img/about-us/About theme10.jpg" alt=""></a>
+
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary leftLst"><</button>
+                <button class="btn btn-primary rightLst">></button>
+            </div>
+        </div>
+        
+        <div class="white" style="padding: 0 1% 0; margin: 0 auto; padding-bottom: 20px !important;">
+            <div style='background-image: url("../../Content/img/desktop-home-21/S_back_img.jpg"); background-repeat: no-repeat; background-size: 100% 100%; text-align: center; margin: 0 auto;'>
+                <a href="~/Product/Snacks">
+                    <div class="row" style="margin:0 auto">
+
+                        <div class="col l5 m5" style="padding:8% 0 9%;">
+                            <div style="color:blueviolet;font-size:50px;font-family:Elephant;align-content:center">
+                                Snacks
+                                <span style="display: block;"> </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+       
+
+        <div class="white" style="padding: 0 1% 0; margin: 0 auto; padding-bottom: 20px !important;">
+            <div style='background-image: url("../../Content/img/desktop-home-21/Oreo_back_img.jpg"); background-repeat: no-repeat; background-size: 100% 100%; text-align: center; margin: 0 auto;'>
+                <a href="~/Product/Bakery">
+                    <div class="row" style="margin:0 auto">
+
+                        <div class="col l5 m5" style="padding:8% 0 9%;">
+                            <div style="color:blueviolet;font-size:50px;font-family:Elephant;align-content:center">
+                                Bakery
+                                <span style="display: block;"> </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row white" style="margin:0 auto;padding:0.8% 1% 0">
+            <div class="col s6" style="padding:0 2px;">
+                <a href="~/Product/AllCakes">
+                    <picture>
+                        <source srcset="~/Content/img/desktop-home-22/1Banner.jpg" type="image/webp">
+                        <img class="responsive-img ls-is-cached lazyloaded" src="~/Content/img/desktop-home-22/1Banner.jpg" data-src="~/Content/img/desktop-home-22/1Banner.jpg" style="width:100%">
+                    </picture>
+                </a>
+            </div>
+
+            <div class="col s6" style="padding:0 2px;">
+                <a href="~/Product/AllCakes">
+                    <picture>
+                        <source srcset="~/Content/img/desktop-home-22/Banner1.jpg" type="image/webp">
+                        <img class="responsive-img ls-is-cached lazyloaded" src="~/Content/img/desktop-home-22/Banner1.jpg" data-src="~/Content/img/desktop-home-22/Banner1.jpg" style="width:100%">
+                    </picture>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div style="font-weight: 700; height: 77.8167px; width: 1313px; margin: 0 auto; font-size: 30px; color: #333333; text-align: center; padding: 1.7% 0 0.8%; padding-top: 10.5px;">
+                Customer Events
+            </div>
+            <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                <div class="MultiCarousel-inner" id="tblCustomerEvent">
+                </div>
+                <button class="btn btn-primary leftLst"><</button>
+                <button class="btn btn-primary rightLst">></button>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        media only screen and (min-width: 600px) {
+            .title-style
+
+        {
+            padding: 5px 15px;
+            font-size: 14px;
+        }
+
+        .padding-style {
+            padding: 10px 10px 25px;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        }
+
+        media screen and (max-width: 600px) {
+            .title-style
+
+        {
+            padding: 0px 0px;
+            font-size: 13px;
+        }
+
+        .padding-style {
+            padding-top: px;
+            padding-bottom: 0px;
+        }
+
+        .title {
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .last-line {
+            height: 3.6em;
+            /* exactly three lines */
+            text-overflow: -o-ellipsis-lastline;
+        }
+    </style>
+    
+    @*<script>
+        $(".slider").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 5000, //2000ms = 2s;
+            autoplayHoverPause: true,
+        });
+    </script>
+
+    <script>
+        $(".Item").pad15({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 1000, //2000ms = 2s;
+            autoplayHoverPause: true,
+        });
+    </script>*@
+
+</main>

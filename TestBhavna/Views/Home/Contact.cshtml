@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/Pages/Contact.js"></script>
+
+
+<div class="container-fluid py-5" style="background-color:#ffecf0;">
+    <div class="col s12 breadcrumb-wrapper" style="padding-top: 2px;padding-bottom: 9px;">
+        <a href="~/Home/Index" class="breadcrumb">Home</a>
+        <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="breadcrumb-delim">
+            <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+        </svg>
+        <a class="breadcrumb" href="~/Home/Contact">Contact Us</a>
+    </div>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 responsive-responsive" style="align-content: center; padding-left: 50px; background-color: #fff; border-radius: 30px; box-shadow: 0px 7px 13px #00000029;">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div>
+                            <br />
+                            <div>
+                                <strong style="font-family:script MT">Bhavana's Cake</strong><br>
+                                <address>
+                                    Gulmohar Shikshak Colony, Gokul ,Behind Meharanand Colony,Akola Road, Akot, Maharashtra 444101
+                                </address>
+                            </div>
+                            <div>
+                                <strong style="font-family:script MT">Telephone</strong><br>
+                                <strong style="font-family:script MT">Akot:</strong>9823607753 | 9822188804<br />
+                                <strong style="font-family:script MT">Morshi:</strong>-----<br />
+                                <strong style="font-family:script MT">Anjangaon:</strong>-----------<br />
+
+                            </div><br />
+
+                            <div>
+                                <strong>FASSAI Licence</strong><br>
+                                10012022000148<br>
+                                <br>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <style>
+            </style>
+
+            <div class="col-lg-6 border-radius" style="padding-right:10px;">
+                <div class="contact-form bg-light rounded p-5" style="box-shadow: 0px 7px 13px #00000029;background-color:white !important; border-radius: 30px !important;">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <h1 class="section-title position-relative text-center mb-5">Contact Us</h1>
+                        </div>
+                    </div>
+
+                    <div id="success"></div>
+                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="txtName" placeholder="Name:" required="required" data-validation-required-message="Please enter your name" />
+                                @*<p class="help-block text-danger"></p>*@
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="txtMobileNo" placeholder="Number:" required="required" data-validation-required-message="Please enter your Mobile number" />
+                                @*<p class="help-block text-danger"></p>*@
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 control-group">
+                                <input type="text" class="form-control p-4" id="txtEmail" placeholder="Email:" required="required" data-validation-required-message="Please enter your Mobile number" style="width:96%;    />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        @*<div class="control-group">
+                                <textarea class="form-control p-4" rows="1" id="txtaddress" placeholder="Email" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>*@
+                        <div class="control-group" style="padding-right:20px;">
+                            <textarea class="form-control p-4" rows="3" id="txtMessage" placeholder="Message:" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div>
+                            <input id="button1" type="button"style="border-radius:32px!important;" value="submit" class="btn btn-success btn-block py-3 px-5" onclick="SaveCon()" />
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row border-radius" >
+        <div class="col-sm-12" style="padding-left:40px!important; padding-right:20px !important;padding-bottom:1px;">
+            <div class="row justify-content-center">
+                <iframe style="border: 10px solid white;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7445.238757831897!2d77.05163800000001!3d21.087859!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3344da2b4bafdb26!2sBhavnas%20Cake!5e0!3m2!1sen!2sin!4v1654851912533!5m2!1sen!2sin" width="1400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "UserIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+@*<input type="hidden" value="@ViewBag.Pid" id="hdnpid" />*@
+
+<h2>UserIndex</h2>
+
+<style>
+    select.s1 {
+        min-height: 50px;
+        font-size: 16px;
+    }
+
+    select.s2 {
+        min-height: 50px;
+        font-size: 16px;
+    }
+</style>
+
+<body>
+    <div class="container-fluid py-5">
+        <div class="containerform">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-4 responsive-responsive" style="align-content: center; padding-left:50px !important; background-color: #e5dce2;border-radius:5px;">
+                    <br />
+                    <div class="row img">
+                        <img src="~/Content/images/65.JPG" style="height:250px !important; width:250px !important;" /><p style="align-content:center;font-color:black;font-size:30px;font-family:Playfair Display">Blackforest Cake</p>
+                    </div>
+                    <div class="row">
+                        <ul class="product order-details" style="line-break:10px;font-size:24px;font-family:'Century Schoolbook';">
+                            <li>Flaviour: Chocolate</li>
+                            <li>Manufacturing date: 12 june</li>
+                            <li>Expiry Date: 15 june</li>
+                            <li>Unit:3kg</li>
+                            <li>Price: 499</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7 responsive-responsive" style="padding-left:34px;">
+
+                    <div class="contact-form bg-light rounded p-5">
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <h1 class="section-title position-relative text-center mb-5"> Order Now </h1>
+                            </div>
+                        </div>
+
+                        <div name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div>
+                                        <input type="text" class="form-control p-4" id="txtname" placeholder="Enter your name:" required="required" data-validation-required-message="Please enter your name" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control p-4" id="txtnum" placeholder="Enter your number:" required="required" data-validation-required-message="Please enter your Number" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <textarea class="form-control p-1" rows="7" id="txtaddress" placeholder="Enter your address:" data-validation-required-message="Please enter your Address" style="width:108%;"></textarea>
+                                        <p class="help-block text-danger"></p>
+                                        <p class="help-block text-danger"></p>
+
+                                    </div>
+                                    <div class="p-6">
+                                        <select id="ddlscity" class="form-control p-2 s2" style="width:108%;">
+
+                                            <option value="select city">Select your city:</option>
+                                            <option value="Akot">Akot</option>
+                                            <option value="Telhar">Telhar</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div>
+                                        <select id="ddlsize" class="form-control p-2 s1" required="required" data-validation-required-message="please enter your cake size" style="min-height:52px;width:108%;">
+                                            <option>Select your cake size:</option>
+                                            <option>250gr</option>
+                                            <option>500gr</option>
+                                            <option>1kg</option>
+                                            <option>1.5kg</option>
+                                            <option>2kg</option>
+                                            <option>2.5kg</option>
+                                            <option>3kg</option>
+                                            <option>3.5kg</option>
+                                            <option>4kg</option>
+                                            <option>4.5kg</option>
+                                            <option>5kg</option>
+                                            <option>5.5kg</option>
+                                            <option>6kg</option>
+                                            <option>6.5kg</option>
+                                            <option>7kg</option>
+                                            <option>7.5kg</option>
+                                            <option>8kg</option>
+
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control p-4" id="txtprice" placeholder="Price:" required="required" data-validation-required-message="Please enter your price" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class=" control-group">
+
+                                        <input id="txtddate" type="text" placeholder="Delivery Date:" onfocus="(this.type='date')" required="required"
+                                               class="form-control p-4" data-validation-required-message="Please enter your Delivery date" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control p-4" height="300" width="300" id="txtnote" placeholder="Add your Note:" required="required" data-validation-required-message="Please enter your Number" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class=" ">
+                                        <input type="text" class="form-control p-4" id="txttlp" placeholder=" Your Total Price:" required="required" data-validation-required-message="Please enter totalprice" style="width:96%;" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control p-4" id="txtname" placeholder="Product Id:" required="required" data-validation-required-message="Please enter your name" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12" style="padding-right:4px;">
+                                    <button class="btn btn-primary btn-block py-2 px-5" type="submit" id="sendMessageButton" onclick="saveorder()">Send Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@*<body>
+        <div class="container-fluid py-5">
+            <div class="containerform" id="tblProuct">
+                <div class="row justify-content-center">
+
+                </div>
+            </div>
+        </div>
+
+    </body>*@

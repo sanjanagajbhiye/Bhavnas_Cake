@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "UserFeedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/Pages/Feedback.js"></script>
+
+<div class="container-fluid py-5" style="background-color:#ffecf0;">
+    <div class="col s12 breadcrumb-wrapper" style="padding-top: 2px;padding-bottom: 9px;">
+        <a href="#" class="breadcrumb">Home</a>
+        <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="breadcrumb-delim">
+            <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+        </svg>
+        <a class="breadcrumb" href="#">Feedback</a>
+    </div>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 border-radius">
+                <div class="contact-form bg-light rounded p-5" style="align-content: center; padding-left: 50px !important; background-color: white !important; border-radius: 30px !important; box-shadow: 0px 7px 13px #00000029 !important">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <h1 class="section-title position-relative text-center mb-5" style="color:hotpink;">Feedback  Form</h1>
+                        </div>
+                    </div>
+
+                    <div id="success"></div>
+                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="txtName" placeholder="Your Name:" required="required" data-validation-required-message="Please enter your name" />
+                                @*<p class="help-block text-danger"></p>*@
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="txtCity" placeholder="Your City:" required="required" data-validation-required-message="Please enter your Mobile number" />
+                                @*<p class="help-block text-danger"></p>*@
+                            </div>
+
+                        </div>
+                        <!--<div class="row">
+                            <div class="col-sm-12 control-group">
+                                <input type="text" class="form-control p-4" id="txtcity" placeholder="Your City:" required="required" data-validation-required-message="Please enter your Mobile number" />-->
+                        @*<p class="help-block text-danger"></p>*@
+                        <!--</div>
+                        </div>-->
+                        <div class="control-group">
+                            <textarea class="form-control p-4" rows="3" id="txtAddress" placeholder="Your Address:" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control p-4" rows="3" id="txtFeedback" placeholder="Your Feedback:" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div>
+                            <input id="button1" type="button" value="submit" style="border-radius:32px;" class="btn btn-success btn-block py-3 px-5" onclick="save()" />
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>

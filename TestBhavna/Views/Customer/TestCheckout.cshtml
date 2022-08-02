@@ -1,0 +1,1559 @@
+﻿
+@{
+    ViewBag.Title = "TestCheckout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Content/coreast/constant/js/vnd/jquery-3.5.1.min.js"></script>
+<script src="~/Content/assets/js/thor/Checkout.js"></script>
+<script src="~/Content/coreast/constant/js/vnd/materialize-1.0.1.min.js"></script>
+<link href="~/Content/assets/css/thor/Checkout.css" rel="stylesheet" />
+
+<h2>TestCheckout</h2>
+
+
+<main>
+    <style>
+    </style>
+    <div id="fullPageLoader" class="hide">
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sessionExpiredOverlay" style="display: none;">Your checkout session has expired. Page will reload automatically in 5 seconds</div>
+
+    <div class="ck-wrapper">
+        <input type="hidden" id="ckDynViewPart" value="4">
+        <div class="container">
+            <div class="row ck-begin" style="margin-bottom:0;" id="ckDynContentWrapper">
+
+
+
+
+
+                <style>
+                    .icash {
+                        background: url("//assets.winni.in/img/cashcardsprt.png") repeat scroll 7px 1px;
+                        height: 26px;
+                        width: 107px;
+                    }
+
+                    .itzcash {
+                        background: url("//assets.winni.in/img/cashcardsprt.png") repeat scroll -731px 2px;
+                        height: 26px;
+                        width: 99px;
+                    }
+
+                    .jiocash {
+                        background: url("//assets.winni.in/img/cashcardsprt.png") repeat scroll -189px 27px;
+                        height: 26px;
+                        width: 104px;
+                    }
+
+                    .mrupee {
+                        background: url("//assets.winni.in/img/cashcardsprt.png") repeat scroll -1587px 2px;
+                        height: 26px;
+                    }
+
+                    .paycash {
+                        background: url("//assets.winni.in/img/cashcardsprt.png") repeat scroll -391px -1px;
+                        height: 26px;
+                        width: 74px;
+                    }
+
+                    .payzapp {
+                        background: url("//assets.winni.in/img/cashcardsprt.png") repeat scroll 185px 1px;
+                        height: 26px;
+                    }
+
+                    .ycash {
+                        background: url("//assets.winni.in/img/cashcardsprt.png") repeat scroll -558px 3px;
+                        height: 26px;
+                    }
+
+                    .collection.payment-methods li {
+                        font-size: 17px;
+                        padding: 20px;
+                    }
+
+                        .collection.payment-methods li .secondary-content i {
+                            font-size: 30px;
+                            color: #333;
+                            margin-top: -2px;
+                        }
+
+                    .paypalCurr {
+                        border: 1px solid #d5d5d5;
+                        margin-bottom: 15px;
+                        text-align: left;
+                    }
+
+                    .grayCon {
+                        color: #666;
+                        font-size: 13px;
+                    }
+
+                        .grayCon span {
+                            font-size: 16px;
+                        }
+
+                    .changeBackground {
+                        background-color: #F7F9F9;
+                        border: 1px solid #812990;
+                    }
+
+                    .radio-button-currency {
+                        margin-top: 20px;
+                        margin-left: -5px !important;
+                        padding: 0px 9px !important
+                    }
+
+                    .currencyRadio {
+                        cursor: pointer;
+                    }
+
+                    #cardNumber, #nameOnCard, #cardExpiry, #cardCVV, #gpayId, #upiVPA {
+                        border: none;
+                        border-bottom: 1px solid #efefef;
+                    }
+
+                    .bhoechie-tab .input-field label {
+                        font-size: 16px;
+                        color: #999;
+                    }
+
+                    .change-highlight-color {
+                        background-color: #fffcf7;
+                    }
+
+                    .change-highlight-color2 {
+                        background-color: #fffcf7;
+                    }
+
+                    .mini-bag-summary .bag-content .you-pay .label {
+                        color: #333;
+                    }
+
+                    .mini-bag-summary .bag-content .label, .mini-bag-summary .bag-content .sub-total .label {
+                        color: #333;
+                        width: 60%;
+                        float: left;
+                    }
+
+                    .mini-bag-summary .bag-content > div .value {
+                        float: left;
+                        text-align: left;
+                        width: 35%;
+                    }
+
+                    .you-pay.large .value {
+                        font-size: 20px;
+                    }
+
+                    .person-add-summ {
+                        margin-top: 0;
+                        min-height: 190px;
+                    }
+
+                    .input-field label.active {
+                        color: #666 !important;
+                    }
+
+                    #card-container .input-field {
+                        margin-bottom: 0px;
+                    }
+
+                    .payment-option {
+                        padding: 15px 30px 0;
+                    }
+
+                    .wallet-logo-holder img {
+                        max-width: 100%;
+                    }
+
+                    .offterText {
+                        display: none;
+                    }
+
+                        .offterText.visible {
+                            display: block;
+                        }
+
+                    .viewZippyHeader {
+                        display: inline-block
+                    }
+                </style>
+
+                <div class="row">
+                    <div class="col s12 m12">
+                        <h5 class="title payment-title-1" style="font-weight: 500; color: rgb(51, 51, 51); font-size: 15px; margin-bottom: 0px; padding-bottom: 0px;">Choose payment method</h5>
+                        <h5 class="title payment-title-2" style="margin-bottom: 0px; padding-bottom: 0px; display: none;">Other payment method</h5>
+                    </div>
+                </div>
+                <div class="col l8 s12 left-content">
+
+
+                    <div class="white-container hide-on-large-only" style="margin-top:20px;">
+                        <div class="row" style="margin-bottom:0;">
+                            <div class="col s6" style="font-size:17px;">
+                                You Pay
+                            </div>
+                            <div class="col s6 right-align" style="font-size:18px; font-weight: bold;">
+                                <span class="moneySymbol">₹</span><span class="moneyCal" data-inr="0">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dyn-payment-wrapper" style="padding:20px; border:1px solid #efefef; background: #fff; width: 100%; float: left;">
+                        <div class="col s12 accent-1 hide red outage-error"></div>
+                        <div class="col s4 m-payment-wrapper hide-on-large-only">
+                            <div id="changePayMethod" style="display:none; font-size:15px; font-weight:bold; color:#58ACEE; margin-top:20px; margin-bottom:10px;">
+                                <span style="display:inline-block;margin-right:15px; font-size: 25px;"><img src="//assets.winni.in/img/back-payment.png" style="width: 13px"></span>
+                                <span style="display:inline-block; vertical-align: text-bottom;">Change Payment Method</span>
+                            </div>
+                            <ul class="collection payment-methods">
+                                <li class="collection-item" data-method-type="nb"><div>Net Banking<span class="secondary-content"><i class="fa fa-angle-right arrow" aria-hidden="true"></i></span></div></li>
+                                <li class="collection-item" data-method-type="paytm"><div>PayTM<span class="secondary-content"><i class="fa fa-angle-right arrow" aria-hidden="true"></i></span></div></li>
+                                <li class="collection-item" data-method-type="upi"><div>UPI<span class="secondary-content"><i class="fa fa-angle-right arrow" aria-hidden="true"></i></span></div></li>
+                                <li class="collection-item" data-method-type="phonepe"><div>PhonePe<span class="secondary-content"><i class="fa fa-angle-right arrow" aria-hidden="true"></i></span></div></li>
+                            <div class="white-container payment-detail" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="col s12 bhoechie-tab-container payment-options-container hide-on-med-and-down" style="border: none;box-shadow: 1px 1px 4px #e9e7e7;background: #fff;min-height: 543px;">
+                            <input type="hidden" id="onlyZippyDeliveries" value="false">
+                            <div class="tabs">
+                                <ul>
+                                    <li class="selected" id="tab_saved_cards">
+                                        Credit/Debit Card
+                                    </li>
+                                    <li id="tab_nb">
+                                        Netbanking
+                                    </li>
+                                    <li id="tab_paytm">
+                                        Paytm
+                                    </li>
+                                    <li id="tab_googlepay">
+                                        Google Pay
+                                    </li>
+                                    <li id="tab_upi">
+                                        UPI
+                                    </li>
+                                    <li id="tab_phonepe">
+                                        PhonePe
+                                    </li>
+                                    <li id="tab_paypal">
+                                        PayPal
+                                    </li>
+                                    <li id="tab_wallets">
+                                        Wallets
+                                    </li>
+                                    <li id="tab_paylater">
+                                        Pay Later
+                                    </li>
+
+
+
+
+                                </ul>
+                            </div>
+
+                            <div class="bhoechie-tab tab-content">
+                                <div class="bhoechie-tab-content active payment-option" id="card-container">
+                                    <div class="card-error red accent-1 pay-method-error"></div>
+                                    <div class="row">
+                                        <div class="input-field col s12 left-align">
+                                            <input type="text" id="cardNumber">
+                                            <label for="cardNumber">Card Number</label>
+                                        </div>
+                                        <div class="input-field col s12 left-align">
+                                            <input type="text" id="nameOnCard" maxlength="60">
+                                            <label for="nameOnCard">Name on Card</label>
+                                        </div>
+                                        <div id="expCvvWrapper">
+                                            <div class="input-field col s12 left-align" style="margin-top: 0;">
+                                                <div class="row" style="margin-bottom: 0;">
+                                                    <div class="col s12">
+                                                        <div style="margin-bottom:20px; font-size:14px; color:#666;">Expiry Date</div>
+                                                    </div>
+                                                    <div class="input-field col s4" style="margin-top:0;">
+                                                        <input type="text" id="cardExpiry">
+                                                        <label for="cardExpiry">MM / YY</label>
+                                                    </div>
+                                                    <div class="input-field col s3" style="margin:0">
+                                                        <input type="password" class="" pattern="[0-9]*" id="cardCVV" maxlength="4">
+                                                        <label for="cardCVV">CVV</label>
+                                                    </div>
+                                                    <div class="col s3" style="padding-top:0;">
+                                                        <a class="modal-trigger" href="#cvvExplainModal">
+                                                            <img src="//assets..in/img/security-card.png" style="vertical-align: text-top;width: 45px;">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col s12 left-align">
+                                            <span style="color:rgb(150,150,150); font-size:12px;">*Your card information will not be saved</span>
+                                            <div style="display:none">
+                                                <input type="checkbox" id="saveCard">
+                                                <label for="saveCard">Save this card for faster payments</label>
+                                            </div>
+                                        </div>
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <button class="btn primary-btn pay-btn init-payment-btn" data-pay-method="card" type="button" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                Pay <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="moneyCal">3,126</span> </span> Now
+                                            </button>
+                                        </div>
+
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <img src="//assets..in/img/payment-methods.png" id="secureIcons" style="width: 100%;">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="bhoechie-tab-content payment-option" id="nb-container">
+                                    <div class="nb-error red accent-1 pay-method-error"></div>
+                                    <div class="row">
+                                        <div class="col m4 s6">
+                                            <div class="nb-logo-holder" data-bank="NB_HDFC">
+                                                <div title="HDFC Bank" class="nb-logo bank-hdfc"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col m4 s6">
+                                            <div class="nb-logo-holder" data-bank="NB_SBI">
+                                                <div title="SBI" class="nb-logo bank-sbi"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col m4 s6">
+                                            <div class="nb-logo-holder" data-bank="NB_ICICI">
+                                                <div title="ICICI Bank" class="nb-logo bank-icici"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col m4 s6">
+                                            <div class="nb-logo-holder" data-bank="NB_AXIS">
+                                                <div title="Axis Bank" class="nb-logo bank-axis"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col m4 s6">
+                                            <div class="nb-logo-holder" data-bank="NB_YESB">
+                                                <div title="Yes Bank" class="nb-logo bank-yes"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col m4 s6">
+                                            <div class="nb-logo-holder" data-bank="NB_KOTAK">
+                                                <div title="Kotak Bank" class="nb-logo bank-kotak"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col s12">
+                                            <p>Other options:</p>
+                                            <select class="payment_method valid nb-dropdown browser-default" id="nbdropdown" name="bankCode">
+                                                <option noselect="" value="">Choose a bank</option>
+                                                <option disabled="">----</option>
+                                                <option value="NB_AIRTEL" data-bankcode="JP_AIRTEL">Airtel Payments Bank</option>
+                                                <option value="NB_ANDHRA" data-bankcode="JP_ANDHRA">Andhra Bank</option>
+                                                <option value="NB_AXIS" data-bankcode="JP_AXIS">Axis Bank</option>
+                                                <!-- <option value="NB_BBKM">Bank of Bahrain and Kuwait</option> -->
+                                                <!-- <option value="NB_BOB">Bank of Baroda</option> -->
+                                                <option value="NB_BOI" data-bankcode="JP_BOI">Bank of India</option>
+                                                <option value="NB_BOM" data-bankcode="JP_BOM">Bank of Maharashtra</option>
+                                                <option value="NB_CANR" data-bankcode="JP_CANR">Canara Bank</option>
+                                                <option value="NB_CSB" data-bankcode="JP_CSB">Catholic Syrian Bank</option>
+                                                <option value="NB_CBI" data-bankcode="JP_CBI">Central Bank Of India</option>
+                                                <option value="NB_CITI" data-bankcode="JP_CITI">Citi Bank NetBanking</option>
+                                                <option value="NB_CUB" data-bankcode="JP_CUB">CityUnion</option>
+                                                <option value="NB_CORP" data-bankcode="JP_CORP">Corporation Bank</option>
+                                                <option value="NB_COSMOS" data-bankcode="JP_COSMOS">COSMOS Bank</option>
+                                                <option value="NB_DENA" data-bankcode="JP_DENA">DENA Bank</option>
+                                                <option value="NB_DEUT" data-bankcode="JP_DEUT">Deutsche Bank</option>
+                                                <option value="NB_DCB" data-bankcode="JP_DCB">Development Credit Bank</option>
+                                                <option value="NB_DLS" data-bankcode="JP_DLS">Dhanalaxmi Bank</option>
+                                                <option value="NB_FED" data-bankcode="JP_FED">Federal Bank</option>
+                                                <option value="NB_HDFC" data-bankcode="JP_HDFC">HDFC Bank</option>
+                                                <option value="NB_ICICI" data-bankcode="JP_ICICI">ICICI Netbanking</option>
+                                                <option value="NB_IDFC" data-bankcode="JP_IDFC">IDFC Bank</option>
+                                                <!-- <option value="NB_ING">ING Vysya Bank</option> -->
+                                                <option value="NB_INDB" data-bankcode="JP_INDB">Indian Bank </option>
+                                                <option value="NB_IOB" data-bankcode="JP_IOB">Indian Overseas Bank</option>
+                                                <option value="NB_INDUS" data-bankcode="JP_INDUS">IndusInd Bank</option>
+                                                <option value="NB_IDBI" data-bankcode="JP_IDBI">Industrial Development Bank of India</option>
+                                                <option value="NB_JNK" data-bankcode="JP_JNK">Jammu and Kashmir Bank</option>
+                                                <option value="NB_JSB" data-bankcode="JP_JSB">Janata Sahakari Bank</option>
+                                                <option value="NB_KARN" data-bankcode="JP_KARN">Karnataka Bank</option>
+                                                <option value="NB_KVB" data-bankcode="JP_KVB">Karur Vysya </option>
+                                                <option value="NB_KVBCORP" data-bankcode="JP_KVBCORP">Karur Vysya Corporate Banking</option>
+                                                <option value="NB_KOTAK" data-bankcode="JP_KOTAK">Kotak Bank</option>
+                                                <option value="NB_LVB" data-bankcode="JP_LVB">Lakshmi Vilas Bank Retail</option>
+                                                <option value="NB_OBC" data-bankcode="JP_OBC">Oriental Bank Of Commerce</option>
+                                                <option value="NB_PNB" data-bankcode="JP_PNB">Punjab National Bank</option>
+                                                <option value="NB_PMCB" data-bankcode="JP_PMCB">Punjab and Maharashtra Coop Bank</option>
+                                                <option value="NB_PNJSB" data-bankcode="JP_PNJSB">Punjab and Sind Bank</option>
+                                                <!-- <option value="NB_RATN">Ratnakar Bank</option> -->
+                                                <!-- <option value="NB_RBS">Royal Bank of Scotland</option> -->
+                                                <option value="NB_SARASB" data-bankcode="">Saraswat Bank</option>
+                                                <option value="NB_SVCB" data-bankcode="JP_SVCB">Shamrao Vithal Coop Bank</option>
+                                                <option value="NB_SOIB" data-bankcode="JP_SOIB">South Indian Bank</option>
+                                                <option value="NB_SCB" data-bankcode="JP_SCB">Standard Chartered Bank</option>
+                                                <!-- <option value="NB_SBBJ">State Bank of Bikaner and Jaipur</option> -->
+                                                <!-- <option value="NB_SBH">State Bank of Hyderabad</option> -->
+                                                <option value="NB_SBI" data-bankcode="JP_SBI">State Bank of India</option>
+                                                <!-- <option value="NB_SBM">State Bank of Mysore</option> -->
+                                                <!-- <option value="NB_SBP">State Bank of Patiala</option> -->
+                                                <!-- <option value="NB_SBT">State Bank of Travancore</option> -->
+                                                <option value="NB_SYNB" data-bankcode="NB_SYNB">Syndicate Bank</option>
+                                                <!-- <option value="NB_TNSC">Tamil Nadu State Apex Coop Bank</option> -->
+                                                <option value="NB_TMB" data-bankcode="JP_TMB">Tamilnad Mercantile Bank</option>
+                                                <option value="NB_NAIB" data-bankcode="JP_NAIB">The Nainital Bank</option>
+                                                <option value="NB_UCOB" data-bankcode="JP_UCOB">UCO Bank</option>
+                                                <option value="NB_UBICORP" data-bankcode="JP_UBICORP">Union Bank Corporate Banking</option>
+                                                <option value="NB_UBI" data-bankcode="JP_UBI">Union Bank of India</option>
+                                                <option value="NB_UNIB" data-bankcode="JP_UNIB">United Bank Of India</option>
+                                                <!-- <option value="NB_VJYB">Vijaya Bank</option> -->
+                                                <option value="NB_YESB" data-bankcode="JP_YESB">Yes Bank</option>
+                                            </select>
+                                        </div>
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <button class="btn primary-btn pay-btn init-payment-btn" data-pay-method="nb" type="submit" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                Pay <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="moneyCal">3,126</span> </span> Now
+                                            </button>
+                                        </div>
+
+                                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                            Making Payment onBhavnasCake is 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bhoechie-tab-content payment-option" id="paytm-container">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="wallet-logo-holder" style="border:none;">
+                                                <div data-wallet="PAYTM" title="PAYTM" class="wallet-logo paytm"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <button class="btn primary-btn pay-btn init-payment-btn" data-pay-method="paytm" type="submit" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                Pay <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="moneyCal">3,126</span> </span> Now
+                                            </button>
+                                        </div>
+
+                                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                            Making Payment on BhavnasCake is 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bhoechie-tab-content payment-option" id="googlepay-container">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="gpay-error red accent-1 pay-method-error"></div>
+                                        </div>
+                                        <div class="col s12">
+                                            <div class="wallet-logo-holder center-align" style="border:none; margin-top:20px;">
+                                                <div data-wallet="GOOGLE_PAY" title="GOOGLE_PAY">
+                                                    <img src="//assets..in/img/google-pay-logo.png" class="img-responsive" style="width:120px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col s12">
+                                            <div class="row" style="margin-top:30px;">
+                                                <div class="col s6">
+                                                    <input id="gpayId" placeholder="Google Pay UPI ID" type="text" value="" size="60" maxlength="128">
+                                                </div>
+                                                <div class="col s1" style="padding-top:5px; font-weight: 700; font-size:17px;">
+                                                    
+                                                </div>
+                                                <div class="col s5">
+                                                    <select class="browser-default" id="gpayBank">
+                                                        <option value="-1" disabled="" selected="">Bank Name</option>
+                                                        <option value="okhdfcbank">okhdfcbank</option>
+                                                        <option value="oksbi">oksbi</option>
+                                                        <option value="okaxis">okaxis</option>
+                                                        <option value="okicici">okicici</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <p style="text-align:center;">You will recieve a collect request from <strong>BhavnasCake</strong> in your GooglePay app</p>
+                                        </div>
+
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <button class="btn primary-btn pay-btn init-payment-btn" data-pay-method="gpay" type="submit" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                Pay <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="moneyCal">3,126</span> </span> Now
+                                            </button>
+                                        </div>
+
+                                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                            Making Payment on BhavnasCakes is 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bhoechie-tab-content payment-option" id="upi-container">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="upi-error red accent-1 pay-method-error"></div>
+                                        </div>
+                                        <div class="col s12">
+                                            <div class="wallet-logo-holder center-align" style="border:none;">
+                                                <div data-wallet="UPI" title="UPI">
+                                                    <img src="//assets..in/img/upi-1.jpg" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col s12">
+                                            <div style="font-size:15px; text-align: left; margin-bottom: 5px;">Enter your VPA/UPI address</div>
+                                            <div>
+                                                <input id="upiVPA" placeholder="yourupi@bank" type="text" value="" size="60" maxlength="128">
+                                            </div>
+                                            <p>You will recieve a collect request from <strong>Bhavnas cake</strong> in the UPI/PSP app you used to create your VPA</p>
+                                        </div>
+
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <button class="btn primary-btn pay-btn init-payment-btn" data-pay-method="upi" type="submit" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                Pay <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="moneyCal">3,126</span> </span> Now
+                                            </button>
+                                        </div>
+
+                                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                            Making Payment on Bhavnas Cakeis 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bhoechie-tab-content payment-option" id="phonepe-container">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="wallet-logo-holder center-align" style="border:none;">
+                                                <div data-wallet="PHONEPE" title="PHONEPE" class="phonepe">
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAAA2CAMAAAD9AfsAAAAAflBMVEX///9nOrddKLNfLLRcJrNaIrJhMLXe1u7Ow+axn9iBYMJkNbZUE7C1pdn18/qxoNfFuOLg2u/m4PK7rN3x7vh+XMGRd8hWGrGlkNKpl9OagszY0Ov6+f1qPriWfcvIvOOEZcNxSruJa8V5Vb5uRLpPAK51UL2gitCMcMbr5/VHVMd6AAAElUlEQVRoge2Y6ZaiOBiGIRtoIqBEwiYii8r93+BkAQ3Yds2pPt30zPH9UQIp4sO3vMQ4zkcfffTR/0K8iLM0zeKCr01iKdi1BAMiBTA5xuXaPEY87yF1H6KA3YK1maRCSNyFII3XpgpaNLJgDJ5kuFk3mYM7BgueOffxE4xc1wTjdCosWsvTxMoouawIdnnWO0glppVJl2xXw6qgxcF8x9nZYGizElYhZl1IpaWeLMNwwfDFBDz+LX07g5Bc1wWqrrmZ/EjrXBiD8/r+e9+8N/NE/o+e3G4/E5/Mce62mbHD4pYWY6FFckXmYfY9rowhMw/e7l8G60cv4lF95ATqcxog+eKWLakzqbQGBPJf4NrAi5onu1PS+4uxR/PR5rCf5Djq+DIF7LTwii0IzUGBSfMrXGBsdn6hZPHSO6MpKunytusUMFwsuaYejQA+jFylNXFQ+N7blyvf7/nEdRyvDRDtxiPPFFtGvuaCu3dcA8S+5vLqzr1ObXkjsmaomS9qdk68vVyTsUj5HTIGm2DO5RyhLpa4Y0x0ap7m0Y2nW+XJ+FV5Xslk+1X1GFkW2JOLUxRJLhj3sIMQG5QOoOP9ioB+VWxEcu8xFKT31Nhe4EteuYjwOVcNE/m3Eqi51VjIznsUkfx6IXlCTAiO1efTPmjzjstDMscedlkclEFOhApDDnXez1iHIIRURDwoKFUMpQtu8iOoQTLjKk9QPlMsoOpLH4qDM3MIxSXNH0qunfUSoO2Sa6z7sqWyJzyMTDe5MqnOASNTjjFkg14/6QwWmEroDF1NnDELbK4UCs8pMTbz5Cj7HhfMvaIo/E1H2NnqxxapQKPxy0qiT3GizwIEB5XisQZPKqYb0BZK8RahRLUgNYM+ru08vueqF1yUMG2HuFMP+OA6KpAETA10VLkJ0cgFwMHhhOQ7pfgi61L6FzW2inXTpfCiB3cpOVl1/56LVAsucsyVMl8b25zrCKbuvasCe8RLcQ3QxUwLsZ3i6vQ8aaSNIyfUDAqEnNR64wCZlEj6GT7PuV59IrRP51ztY7CBt0W8Bghjf9TB8lWjHNbToP/0VXe0sE4IVZs213tf/QFXAiZXuSivnMWLk9lUlk8oZTbmbBHoqj4v9K02l/vyHvoJV4Q7c3YAYljEy2lnJbHgKrCwFhZbq8BI8rhscVlX/wVX6SKTyEQTzeLlxJOJpP4rl0NJbWJ1l4HwrUS6sNbE5YyLLRchP+VyPCHSA/caof1+Hi/Zo3gzcO8ucPnKVQjYFnyIoGoKx7XXhRQ0aVbP+pG+rPCPYs7FxnVhK7Q77bueib6v9TswFCMXxoqrrBkWiLFOPf9GLIzRF0ggLPrQUNoV5lKi/fDJhZbLQierzvbpoUqm6+MqyovDaCyV6GjsLNhuzRUvbZqb+b9zlS1mLuOkuYfjcmP2u0Nn0+YCL+uMP6YLfc9F2q/v/13iZA5GMs5vxm/pac3Nk+E03zSR6zpzgXTr7uk89k3mwtvVN8FC9LLPRODq+0xSQ8XsMqOQVV/90P5D4psWTPuY8Bj+TVusQxGnf92+70cfffTRf0n/AA6jUA02fQWdAAAAAElFTkSuQmCC">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <button class="btn primary-btn pay-btn init-payment-btn" data-pay-method="phonepe" type="submit" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                Pay <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="moneyCal">3,126</span> </span> Now
+                                            </button>
+                                        </div>
+                                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                            Making Payment on Winni is 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bhoechie-tab-content payment-option" id="paypal-container">
+                                    <div class="row">
+                                        <div class="col s12 center-align">
+                                            <p class="pm-method-info" style="font-size:18px;">
+                                                Pay with PayPal
+
+                                                <br>
+                                                <small>You don't need to have PayPal account for this</small>
+                                            </p>
+
+                                        </div>
+                                        <div class="col s12 center-align">
+                                            <!--                            <button class="btn pay-main-action-btn" data-method="cod" style="width:70%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 14px; height: 48px;color:#FFF;font-weight: 700; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                                            Pay Now
+                                                                        </button>-->
+
+
+                                        </div>
+                                        <!--                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                                                    Making Payment on Winni is 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                                                </div>-->
+                                    </div>
+                                    <div class="row">
+                                        <div style="text-align: left;padding: 0 10px">
+                                            <p style="margin-left:10px;">CHOOSE YOUR CURRENCY</p>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 15px;padding: 0 10px">
+                                            <div class="paypalCurr changeBackground" style="margin: 0px 20px;">
+                                                <div class="row currencyRadio" value="usd" style="width: 100%;margin: 0">
+                                                    <div class="col s1 radio-button-currency">
+                                                        <label>
+                                                            <input id="usd" name="currency" class="with-gap" value="usd" type="radio" checked="">
+                                                            <span for="usd"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col s11" style="padding: 15px 5px">
+                                                        <div class="">
+                                                            <div class="grayCon"><span style="font-weight: 600">USD </span>(United State Dollar)</div>
+                                                            <div style="font-weight: 600">USD <span data-inr="3,226" class="paypalUSAAmount">41.50</span></div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin: 0;width: 100%;margin-bottom: 20px;padding: 0 10px">
+                                            <div class="col s6" style="padding: 0 8px;">
+
+                                                <div class="paypalCurr">
+                                                    <div class="row currencyRadio" value="cad" style="width: 100%;margin: 0">
+                                                        <div class="col s2 radio-button-currency">
+                                                            <label>
+                                                                <input id="cad" name="currency" class="with-gap" value="cad" type="radio">
+                                                                <span for="cad"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col s10" style="padding: 15px 5px">
+                                                            <div class="grayCon"><span style="font-weight: 600">CAD </span>(Canadian Dollar)</div>
+                                                            <div style="font-weight: 600">CAD <span data-inr="3,226" class="paypalCADAmount">52.11</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="paypalCurr">
+                                                    <div class="row currencyRadio" value="gbp" style="width: 100%;margin: 0">
+                                                        <div class="col s2 radio-button-currency">
+                                                            <label>
+                                                                <input id="gbp" name="currency" class="with-gap" value="gbp" type="radio">
+                                                                <span for="gbp"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col s10" style="padding: 15px 5px">
+                                                            <div class="grayCon"><span style="font-weight: 600">GBP </span>(British Pound)</div>
+                                                            <div style="font-weight: 600">GBP <span data-inr="3,226" class="paypalGBPAmount">33.12</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="paypalCurr">
+                                                    <div class="row currencyRadio" value="thb" style="width: 100%;margin: 0">
+                                                        <div class="col s2 radio-button-currency">
+                                                            <label>
+                                                                <input id="thb" name="currency" class="with-gap" value="thb" type="radio">
+                                                                <span for="thb"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col s10" style="padding: 15px 5px">
+                                                            <div class="grayCon"><span style="font-weight: 600">THB </span>(Thailand Baht)</div>
+                                                            <div style="font-weight: 600">THB <span data-inr="3,226" class="paypalTHBAmount">1431.88</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col s6" style="padding: 0 8px;">
+                                                <div class="paypalCurr">
+                                                    <div class="row currencyRadio" value="aud" style="width: 100%;margin: 0">
+                                                        <div class="col s2 radio-button-currency">
+                                                            <label>
+                                                                <input id="aud" name="currency" class="with-gap" value="aud" type="radio">
+                                                                <span for="aud"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col s10" style="padding: 15px 5px">
+                                                            <div class="grayCon"><span style="font-weight: 600">AUD </span>(Australian Dollar)</div>
+                                                            <div style="font-weight: 600">AUD <span data-inr="3,226" class="paypalAUDAmount">57.78</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="paypalCurr">
+                                                    <div class="row currencyRadio" value="sgd" style="width: 100%;margin: 0">
+                                                        <div class="col s2 radio-button-currency">
+                                                            <label>
+                                                                <input id="sgd" name="currency" class="with-gap" value="sgd" type="radio">
+                                                                <span for="sgd"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col s10" style="padding: 15px 5px">
+                                                            <div class="grayCon"><span style="font-weight: 600">SGD </span>(Singapore Dollar)</div>
+                                                            <div style="font-weight: 600">SGD <span data-inr="3,226" class="paypalSGDAmount">57.08</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="paypalCurr">
+                                                    <div class="row currencyRadio" value="eur" style="width: 100%;margin: 0">
+                                                        <div class="col s2 radio-button-currency">
+                                                            <label>
+                                                                <input id="eur" name="currency" class="with-gap" value="eur" type="radio">
+                                                                <span for="eur"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col s10" style="padding: 15px 5px">
+                                                            <div class="grayCon"><span style="font-weight: 600">EUR </span>(Euro)</div>
+                                                            <div style="font-weight: 600">EUR <span data-inr="3,226" class="paypalEURAmount">38.69</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="paypalCurrency" value="usd">
+                                        </div>
+                                        <button class="btn primary-btn pay-btn init-payment-btn" data-pay-method="paypal" type="submit" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                            Pay <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="moneyCal">3,126</span> </span> with Paypal
+                                        </button>
+                                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                            Making Payment on Winni is 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="bhoechie-tab-content payment-option" id="wallet-container">
+                                    <div class="wallet-error red accent-1 pay-method-error"></div>
+                                    <div class="row">
+                                        <div class="col m4 s6">
+                                            <div class="wallet-logo-holder" data-wallet="mobikwik">
+                                                <div data-wallet="MOBIKWIK" title="MOBIKWIK" class="wallet-logo mobikwik" style="margin-top: 6px;margin-bottom: 9px;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col m4 s6">
+                                            <div class="wallet-logo-holder" data-wallet="amazonpay">
+                                                <img src="//assets.winni.in/img/amzn-pay.jpg" style="width:120px; display: block; margin-top:2px; margin-bottom:4px;">
+                                            </div>
+                                        </div>
+                                        <div class="col m4 s6">
+                                            <div class="wallet-logo-holder" data-wallet="olamoney" style="">
+                                                <img src="//assets.winni.in/img/olalogo.jpg" style="display: inline-block; margin-top:10px; margin-bottom:7px; width:120px;">
+                                            </div>
+                                        </div>
+
+                                        <div class="col s12" style="margin-top:20px;">
+                                            <p>More Wallet options:</p>
+                                            <select class="payment_method valid wallet-dropdown browser-default" name="walletCode">
+                                                <option noselect="" value="">Choose a Wallet</option>
+                                                <option disabled="">----</option>
+                                                <option value="mobikwik">Mobikwik</option>
+                                                <option value="amazonpay">Amazon Pay</option>
+                                                <option value="freecharge">FreeCharge</option>
+                                                <option value="olamoney">Ola Money</option>
+                                                <option value="jiomoney">JioMoney</option>
+                                                <option value="oxigen">Oxigen</option>
+                                                <option value="payzapp">HDFC Bank - PayZapp</option>
+                                                <!--<option value="payzapp">LazyPay</option>-->
+
+
+                                            </select>
+                                        </div>
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <button class="btn primary-btn pay-btn init-payment-btn" data-pay-method="wallet" type="submit" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                Pay <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="moneyCal">3,126</span> </span> Now
+                                            </button>
+                                        </div>
+                                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                            Making Payment on Winni is 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bhoechie-tab-content payment-option" id="paylater_container">
+                                    <div class="paylater-error red accent-1 pay-method-error"></div>
+                                    <div class="row">
+
+                                        <div class="col m4 s6">
+                                            <div class="wallet-logo-holder" data-wallet="lazypay">
+                                                <img src="https://assets.winni.in/groot/2022/3/07/lazypay.png?w=165" style="display: inline-block;padding: 12px 5px 5px;">
+                                            </div>
+                                        </div>
+                                        <div class="col m4 s6">
+                                            <div class="wallet-logo-holder center" data-wallet="zestmoney">
+                                                <img src="https://assets.winni.in/groot/2022/3/07/zestlogo.png?w=86" style="display: inline-block; margin-top:4px;">
+                                            </div>
+                                        </div>
+                                        <div class="col s12" style="margin-top:20px;">
+                                            <select class="payment_method valid paylater-dropdown wallet-dropdown browser-default" name="paylaterCode">
+                                                <option noselect="" value="">Choose a Pay Later Account</option>
+                                                <option disabled="">--</option>
+
+                                                <option value="lazypay">LazyPay Pay Later</option>
+                                                <option value="zestmoney">Zestmoney Pay Later</option>
+                                            </select>
+                                        </div>
+                                        <div class="col s12 paymentText">
+
+                                            <p class="offterText" id="lazypay" style="margin:5px 0 0; font-size: 12px; font-weight: bold; text-align: left;">Buy Now Pay Later</p>
+                                            <p class="offterText" id="zestmoney" style="margin:5px 0 0; font-size: 12px; font-weight: bold; text-align: left;">Buy Now and Pay Later by 5th of the following month</p>
+                                        </div>
+                                        <div class="col s12 center-align" style="margin-top:30px;">
+                                            <input id="sezzle_total" type="hidden" value="3,126">
+                                            <button class="btn primary-btn pay-btn init-payment-btn button_sezzle" data-pay-method="paylater" type="submit" style="width:100%; border-radius: 4px; background: #3CB324 none repeat scroll 0 0; font-size: 16px; height: 48px;color:#FFF;font-weight: 400; text-align: center;text-transform: uppercase;white-space: nowrap; box-shadow: none;">
+                                                Pay <span class="value"><span class="moneySymbol">₹</span> <span class="sezzle_amount_value" data-inr="3,126">3,126</span> </span> Now
+                                            </button>
+                                        </div>
+                                        <div class="col s12 center-align" style="font-size: 12px;color: #888;margin-top: 30px;">
+                                            Making Payment on Winni is 100% safe. Your transaction is processed through a secure https internet connection based on secure socket layer technology.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l4 s12">
+                    <div class="review-section">
+                        <div class="address-summary person-add-summ white-container" style="margin-bottom:3%;" "=" ">
+
+
+                            <div class="row" style="margin: 0;">
+
+                                <div class="col s12" style="padding: 10px 10px 5px;">
+                                    <div class="summary-bd ">
+
+                                        <span class="name" style="display: block; padding-bottom: 5px;"><span class="select"><img src="//assets.winni.in/img/selected-radio.png" style="width: 18px;    margin: 0px 6px -3px 0;"></span>Sanjana <span style="display: inline-block;float: right;text-transform: capitalize;">home</span></span>
+                                        <span class="address">Misal lay out jaripatka Nagpur</span>
+                                        <span class="locality">jaripatka</span>
+                                        <div>
+                                            <span class="city">Nagpur - 440014</span>
+                                            <span class="state">Maharashtra</span>
+                                            <span class="mobile">Mobile: 8317211946</span>
+                                        </div>
+                                    </div>
+                                    <div class="title changeaddresscta">
+                                        <a class="edit" href="/checkout/adv/address?from=4">
+                                            <button class="btn" style="box-shadow: none; text-transform: none !important;background-color:white;line-height:unset!important;height: 30px; border: 1px solid #DA0E68;padding: 0 12px!important;font-size:14px!important;border-radius: 2px;color:#DA0E68">Change Address</button>
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="mini-bag-summary white-container">
+                            <div id="dynOrderPriceSummary">
+
+
+
+
+
+                                <div class="mini-bag-summary summary">
+
+                                    <div class="bag-content white-container" style="border: none; padding: 0;">
+                                        <div class="items">
+                                            <span class="curly-braces">Price Details</span>
+                                            <span class="curly-braces"> &nbsp;(4 Items)</span>
+                                        </div>
+                                        <div class="bag-total large">
+                                            <span class="label">Cart Total</span>
+
+                                            <span class="value"><span class="moneySymbol">₹</span> <span data-inr="3,126" class="">3,126</span></span>
+
+                                        </div>
+
+                                        <div class="bag-discount large cart_coupoun">
+
+
+
+
+                                            <div id="toggleAddCoupon" style="width: 100%; float: left">
+                                                <span class="label">Coupon</span>
+                                                <span class="value blue-text" style="color: #DA0E68 !important;">Add Coupon</span>
+                                            </div>
+
+
+
+
+                                        </div>
+                                        <div class="row" id="couponContainer" style="display: none;    margin: 0px;">
+                                            <div style="margin: 0px 0px 10px;padding-bottom: 0px; float: left; width: 80%;    border: 1px solid #E6E6E6;">
+                                                <div class="col s8" style="padding-left: 0px; padding-right: 0px;">
+                                                    <input type="text" id="proCouponCode" name="couponCode" value="" style="height: 1.5rem !important;margin-bottom:0;border:none;">
+                                                    <!--<label for="proCouponCode">Coupon Code</label>-->
+                                                </div>
+                                                <div class="col s4" style="padding: 0">
+                                                    <button class="bag-discount add-coupon-btn" style="height: auto;border: none;cursor: pointer;color: #fff; background: #da0e68; float: right;line-height: initial;padding: 8px 16px;">Apply</button>
+                                                </div>
+                                            </div>
+                                            <!--                <div class="col s12 coupon-help" style="display:none; color: #B45F04; padding-top:0; padding-left:5px;">
+                                                                You can use coupon code <strong>CK50</strong> to get flat <span class="moneySymbol">Rs.</span>&nbsp;<span class="moneyCal" data-inr="50">50</span> off
+                                                            </div>-->
+
+                                        </div>
+
+
+
+                                        <div class="sub-total large">
+                                            <span class="label">Order Total</span><span class="value"><span class="moneySymbol">₹</span>&nbsp;<span class="" data-inr="3,126">3,126</span> </span>
+                                        </div>
+
+                                        <div class="delivery">
+                                            <span class="label">Delivery Charge</span>
+
+
+
+                                            <span class="free value c-green">FREE</span>
+
+
+                                        </div>
+
+                                        <div class="you-pay large"><span class="label">Total Amount</span><span class="value" style="font-size: 20px;"><span class="moneySymbol">₹</span>&nbsp;<span class="" data-inr="3,126">3,126</span> </span></div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div style="margin-top:0px;">
+                                <div class="title">
+                                    <span style="color:#333333;font-weight:700;">  Sender Detail </span>
+
+                                    (<a style="font-weight:500;color:#6473FF!important;" href="/checkout/adv/personalize">change</a>)
+
+                                </div>
+
+                                <div class="summary-bd white-container" style="color:#666; border: none;padding: 0;">
+                                    <div class="name"><strong id="senderName">Sanjana</strong></div>
+                                    <div class="mobile" id="senderMobile">8317211946</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top:5px;">
+                                <div class="title">
+                                    <span style="color:#333333;font-weight:700;">  Delivery Time</span> (<a style="font-weight:500;color:#6473FF!important;" href="/checkout/adv/personalize">change</a>)
+                                </div>
+                                <div class="summary-bd white-container" style="color:#666; border: none;padding: 0;">
+                                    2022-06-13 (6 PM - 10 PM)
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+
+
+
+
+                            <div class="row center-align" style="padding:2% 5% 2%">
+                                <div class="col s4" style=" text-align:center;padding:0">
+                                    <div class="left">
+                                        <img src="//assets.winni.in/img/delivery.png" style="height: 25px;margin-top: 6px; margin-right:2px;">
+                                    </div>
+                                    <div class="left" style="text-align:left;font-size:11px;color:#000000;padding-top: 4px;padding-left:4px;">
+                                        <div>Delivery In</div>
+                                        <div style="line-height: 10px;">
+                                            2 hours
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col s4" style=" text-align:center;padding:0">
+                                    <div class="left">
+                                        <img src="//assets.winni.in/img/trusted.png" style="height: 25px;margin-top: 6px; margin-right:2px;">
+                                    </div>
+                                    <div class="left" style="text-align:left;font-size:11px;color:#000000;padding-top: 4px;padding-left:4px;">
+                                        <div>Trusted </div>
+                                        <div style=" line-height: 10px;">
+                                            By Millions
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s4" style=" text-align:center;padding:0">
+                                    <div class="left">
+                                        <img src="//assets.winni.in/img/service.png" style="height: 25px;margin-top: 6px; margin-right:2px;">
+                                    </div>
+                                    <div class="left" style="text-align:left;font-size:11px;color:#000000;padding-top: 4px;padding-left:4px;">
+                                        <div>Services</div>
+                                        <div style=" color:#000000; line-height: 10px;">
+                                            In 6000 Cities
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="otpbtn" style="display: none">
+
+
+
+
+
+                    <style>
+
+                        #digit-1, #digit-2, #digit-3, #digit-4 {
+                            width: 30px !important;
+                            height: 50px !important;
+                            background-color: #ffffff !important;
+                            line-height: 50px !important;
+                            text-align: cente !important;
+                            font-size: 24px !important;
+                            font-family: 'Raleway', sans-serif !important;
+                            font-weight: 200 !important;
+                            color: black !important;
+                            margin: 0 2px 10px !important;
+                            border-bottom: 1px solid #131212 !important;
+                        }
+
+                        .password-input:focus:not([readonly]) {
+                            border: none !important;
+                        }
+
+                        .header-title {
+                            font-size: 20px;
+                            font-weight: 500;
+                            margin-top: 35px;
+                            text-transform: none !important;
+                        }
+
+                        #digitPassword {
+                            width: 35% !important;
+                            height: 302px !important
+                        }
+
+                        .btn-disabled, .btn[disabled] {
+                            background-color: #cbcbcb !important;
+                            color: #706e6e !important
+                        }
+
+                        .resend-button-link {
+                            display: none !important;
+                        }
+
+                        .show-resend-link {
+                            display: block !important;
+                        }
+                    </style>
+                    <div id="digitPassword">
+                        <div class="center-align header-title">
+                            <div id="digitPasswordlbl" class="otp-sent-text">An OTP has been sent to <span>8317211946</span></div>
+                        </div>
+                        <div class="otp-content-div">
+                            <div class="digit-group" id="digit-group">
+                                <div style="text-align: center;margin-top: 20px">
+                                    <input class="password-input" type="text" id="digit-1" name="digit-1" data-next="digit-2" onkeyup="stopCarret(event, 'digit-2', '')" autofocus="autofocus" maxlength="1">
+                                    <input class="password-input" type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" onkeyup="stopCarret(event, 'digit-3', 'digit-1')" maxlength="1">
+                                    <input class="password-input" type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" onkeyup="stopCarret(event, 'digit-4', 'digit-2')" maxlength="1">
+                                    <input class="password-input" type="text" id="digit-4" name="digit-4" data-previous="digit-3" onkeyup="stopCarret(event, '', 'digit-3')" maxlength="1">
+                                </div>
+                                <div style="text-align: center" id="timer"></div>
+                                <div style="text-align: center;color: red;display: none" id="otpExpire">Otp has been expired. Please resend it.</div>
+                            </div>
+
+                            <div class="row" style="margin-top: 30px">
+                                <div class="col l12 center-align">
+                                    <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                                    <!--                                     <button type="submit" class="btn btn-default digit" tabindex="3">Confirm</button> -->
+                                    <button id="validateOtpbtn" class="btn btn-default" tabindex="3" data-method="cod" data-codvalue="0" style="padding: 0 35px" disabled="">Confirm</button>
+                                </div>
+
+
+                                <div class="col l5 offset-l7 right-align">
+                                    <!--Do NOT use name="submit" or id="submit" for the Submit button-->
+                                    <!--<button type="submit" class="btn btn-default digit" tabindex="3">Confirm</button>-->
+                                    <a id="generateOtpbtn" class="resend-button generateOtpDesk resend-button-link" data-method="resend" style="cursor: pointer;padding: 0 10px;margin-top: -28px;font-size: 16px;padding-left: 20px;">Resend OTP</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col l12 center-align">
+                                    <div class="invalid-otp" style="margin-top: -10px;color: red"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $("#digit-group input").each(function () {
+                            $(this).attr('maxlength', 1);
+                        });
+                    </script>
+                </div>
+                <form class="juspay_inline_form" id="payment_form">
+                    <input type="hidden" class="merchant_id" value="winni">
+                    <input type="hidden" class="order_id" id="orderTxId" value="">
+                    <input type="hidden" class="card_number" value="">
+                    <input type="hidden" class="name_on_card" value="">
+                    <input type="hidden" class="card_exp_month" value="">
+                    <input type="hidden" class="card_exp_year" value="">
+                    <input type="hidden" class="security_code" value="">
+                    <input type="hidden" class="juspay_locker_save" value="">
+                    <input type="hidden" class="redirect" value="true">
+                    <input type="hidden" class="payment_method_type" value="">
+                    <input type="hidden" id="payment_method" class="payment_method" value="">
+                    <input type="hidden" class="juspay_bank_code" value="">
+                    <input type="hidden" class="winni_payment_method" value="">
+                    <input type="hidden" class="upi_vpa" value="">
+                    <input type="hidden" class="txn_type" value="">
+
+
+                </form>
+                <script>
+                    if ($('#useWinniWallet').is(":checked")) {
+                        $(".dyn-payment-wrapper").hide();
+                        $("h5.title").hide();
+                        $(".winni-wlt-pay").show();
+                        //        $(".highlight-container").style.background="#fffcf7";
+                        $(".highlight-container").addClass("change-highlight-color");
+                        $(".payment-title-1").hide();
+                        $(".payment-title-2").hide();
+                    } else {
+                        $(".dyn-payment-wrapper").show();
+                        $("h5.title").show();
+                        $(".winni-wlt-pay").hide();
+                        //        $(".highlight-container").style.background="#ffffff";
+                        $(".highlight-container").removeClass("change-highlight-color");
+                        $(".payment-title-1").show();
+                        $(".payment-title-2").hide();
+                    }
+                    $("#useWinniWallet").click(function () {
+                        if ($(this).is(":checked")) {
+                            $(".dyn-payment-wrapper").hide();
+                            $("h5.title").hide();
+                            $(".winni-wlt-pay").show();
+                            //        $(".highlight-container").style.background="#fffcf7";
+                            $(".highlight-container").addClass("change-highlight-color");
+                            $(".payment-title-1").hide();
+                            $(".payment-title-2").show();
+                        } else {
+                            $(".dyn-payment-wrapper").show();
+                            $("h5.title").show();
+                            $(".winni-wlt-pay").hide();
+                            //        $(".highlight-container").style.background="#ffffff";
+                            $(".highlight-container").removeClass("change-highlight-color");
+                            $(".payment-title-1").show();
+                            $(".payment-title-2").hide();
+                        }
+                        $('#wltUsedBtn')[0].click();
+                    });
+                    if ($('#useWinniWalletPartial').is(":checked")) {
+                        $(".highlight-container").addClass("change-highlight-color2");
+                    } else {
+                        $(".highlight-container").removeClass("change-highlight-color2");
+                    }
+                    $("#useWinniWalletPartial").click(function () {
+                        if ($(this).is(":checked")) {
+                            $(".highlight-container").addClass("change-highlight-color2");
+                        } else {
+                            $(".highlight-container").removeClass("change-highlight-color2");
+                        }
+                        $('#wltUsedBtn')[0].click();
+                    });</script>
+                <script>
+                    var paymentParams = {
+                        cardInitials: "",
+                        expMonth: "",
+                        expYear: "",
+                        nameOnCard: "",
+                        paymentMethod: "",
+                        paymentMethodType: "",
+                        txId: ""
+                    };
+                    $(document).ready(function () {
+                        $('#fullPageLoader').addClass('hide');
+                        //$('#jpIFrame').on("load", function () {
+                        //    $('#fullPageLoader').addClass('hide');
+                        //});
+
+
+                        $("div.tabs>ul>li").click(function (e) {
+                            e.preventDefault();
+                            $(this).siblings('li.selected').removeClass("selected");
+                            $(this).addClass("selected");
+                            var index = $(this).index();
+                            $("div.tab-content>div.payment-option").removeClass("active");
+                            $("div.tab-content>div.payment-option").eq(index).addClass("active");
+                        });
+                    });</script>
+
+                <script type="text/javascript">
+                    $(".dyn-payment-wrapper").on("click", ".nb-logo-holder", function () {
+                        var bank = $(this).data("bank");
+                        $(".nb-dropdown").val(bank);
+                    });
+                    $(".dyn-payment-wrapper").on("click", ".wallet-logo-holder", function () {
+                        var wallet = $(this).data("wallet");
+                        $(".wallet-dropdown").val(wallet);
+                    });
+                    $(".dyn-payment-wrapper").on("keyup", "#cardNumber", function () {
+                        var number = $("#cardNumber").val().trim();
+                        var cardBrand = $.payment.cardType(number);
+                        if (cardBrand == 'maestro') {
+                            $("#expCvvWrapper").hide();
+                        } else {
+                            $("#expCvvWrapper").show();
+                        }
+                    });
+                    Juspay.Setup({
+                        payment_form: "#payment_form",
+                        success_handler: function (status) {
+                        },
+                        error_handler: function (error_code, error_message, bank_error_code,
+                            bank_error_message, gateway_id) {
+                        }
+                    });</script>
+
+
+                <!-- Modal Structure -->
+                <div id="cvvExplainModal" class="modal modal-fixed-footer" style="background-color:#FFF;">
+                    <div class="modal-content">
+                        <div class="content">
+                            <h4 class="cvv-title">CVV Number (Card Verification Number)</h4>
+                            <p>
+                                The CVV Number ("Card Verification Value") on your credit card or debit card is a 3 digit number on VISAÂ®, MasterCardÂ® and DiscoverÂ® branded credit and debit cards. On your American ExpressÂ® branded credit or debit card it is a 4 digit numeric code.
+                            </p>
+                            <p>
+                                Your CVV number can be located by looking on your credit or debit card, as illustrated in the image below:
+                            </p>
+                            <p class="center-align">
+                                <img class="cvv-image" src="//assets.winni.in/img/cvvnumber_explain.png">
+                            </p>
+                            <p>
+                                Providing your CVV number to an online merchant proves that you actually have the physical credit or debit card - and helps to keep you safe while reducing fraud.
+                            </p>
+                            <p>
+                                CVV numbers are NOT your card's secret PIN (Personal Identification Number).
+                            </p>
+                            <p>
+                                You should never enter your PIN number when asked to provide your CVV. (PIN numbers allow you to use your credit or debit card at an ATM or when making an in-person purchase with your debit card or a cash advance with any credit card.)
+                            </p>
+                            <p>
+                                CVV numbers are also known as CSC numbers ("Card Security Code"), as well as CVV2 numbers, which are the same as CVV numbers, except that they have been generated by a 2nd generation process that makes them harder to "guess".
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color:#FFF; text-align: right">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat right-align">Close</a>
+                    </div>
+                </div>
+                <script>
+                    function onCheckout() {
+                        dataLayer.push({
+                            'event': 'checkout',
+                            'ecommerce': {
+                                'checkout': {
+                                    'actionField': { 'step': 3, 'option': 'Payment' }
+                                }
+                            }
+                        });
+                    }
+                    onCheckout();
+
+                </script>
+
+                <script>
+                    try {
+                        dataLayer.push({
+                            'event': 'checkoutViewStep3',
+                            'data': {
+                                'checkoutStepName': 'Payment',
+                                'cartItemCount': 4,
+                                'cartTotal': 3126,
+
+
+
+
+                                'couponDiscount': 0,
+
+
+
+
+                                'walletDiscount': 0,
+
+
+
+                                'deliveryCharge': 0,
+                                'orderTotal': 3126,
+                                'recipientName': 'Sanjana',
+                                'recipientCity': 'Nagpur',
+                                'recipientMobile': '8317211946',
+                                'deliveryDate': '2022-06-13',
+                                'deliveryTime': '6 PM - 10 PM',
+                                'cartItems': [
+
+
+
+
+
+
+
+
+                                    {
+                                        'productName': 'Jute Wrapped Money Plant',
+                                        'productId': '30801',
+                                        'price': '449',
+                                        'primaryCategoryId': '54',
+                                        'primaryCategoryName': 'Plants',
+                                        'productUrl': 'https://www.winni.in/jute-wrapped-money-plant/pd/30801',
+                                        'productImageUrl': {
+                                            'smallImageUrl': 'https://assets.winni.in/product/primary/2014/10/50379.jpeg?dpr=1&w=300',
+                                            'mediumImageUrl': 'https://assets.winni.in/product/primary/2014/10/50379.jpeg?dpr=1&w=600',
+                                            'bigImageUrl': 'https://assets.winni.in/product/primary/2014/10/50379.jpeg?dpr=1&w=1000'
+                                        }
+                                    },
+
+
+
+
+
+
+
+
+                                    {
+                                        'productName': 'Incredible Combo',
+                                        'productId': '29266',
+                                        'price': '1199',
+                                        'primaryCategoryId': '45',
+                                        'primaryCategoryName': 'Occasional Combo',
+                                        'productUrl': 'https://www.winni.in/incredible-combo/pd/29266',
+                                        'productImageUrl': {
+                                            'smallImageUrl': 'https://assets.winni.in/product/primary/2014/10/47135.jpeg?dpr=1&w=300',
+                                            'mediumImageUrl': 'https://assets.winni.in/product/primary/2014/10/47135.jpeg?dpr=1&w=600',
+                                            'bigImageUrl': 'https://assets.winni.in/product/primary/2014/10/47135.jpeg?dpr=1&w=1000'
+                                        }
+                                    },
+
+
+
+
+
+
+
+
+                                    {
+                                        'productName': 'Birthday Ceramic Mug',
+                                        'productId': '37789',
+                                        'price': '329',
+                                        'primaryCategoryId': '7',
+                                        'primaryCategoryName': 'Mug',
+                                        'productUrl': 'https://www.winni.in/birthday-ceramic-mug/pd/37789',
+                                        'productImageUrl': {
+                                            'smallImageUrl': 'https://assets.winni.in/product/primary/2022/6/61275.jpeg?dpr=1&w=300',
+                                            'mediumImageUrl': 'https://assets.winni.in/product/primary/2022/6/61275.jpeg?dpr=1&w=600',
+                                            'bigImageUrl': 'https://assets.winni.in/product/primary/2022/6/61275.jpeg?dpr=1&w=1000'
+                                        }
+                                    },
+
+
+
+
+
+
+
+
+                                    {
+                                        'productName': 'Beauty Blust',
+                                        'productId': '29479',
+                                        'price': '1149',
+                                        'primaryCategoryId': '11',
+                                        'primaryCategoryName': 'Combos',
+                                        'productUrl': 'https://www.winni.in/beauty-blust/pd/29479',
+                                        'productImageUrl': {
+                                            'smallImageUrl': 'https://assets.winni.in/product/primary/2014/10/47469.jpeg?dpr=1&w=300',
+                                            'mediumImageUrl': 'https://assets.winni.in/product/primary/2014/10/47469.jpeg?dpr=1&w=600',
+                                            'bigImageUrl': 'https://assets.winni.in/product/primary/2014/10/47469.jpeg?dpr=1&w=1000'
+                                        }
+                                    },
+
+                                ]
+                            }
+                        });
+                    }
+                    catch (err) {
+                        console.error("Error in webengage code")
+                    }
+                </script>
+                <script>
+                    payLater();
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!--        <footer class="page-footer b-white">
+                        <div class="help-info m-hide">
+                            <div class="full-container">
+                                <div class="left">
+                                    <div style="overflow: hidden; width: 418px;" class="hide-on-small-only">
+                                        <img src="//assets.winni.in/img/payment-methods.png" width="500">
+                                    </div>
+                                </div>
+
+                                <div style="line-height: normal; margin-right: 10px;" class="right  right-align">
+                                    <span class="text-capitalize" style="font-weight: 700;color: #333"><strong>Need Help With This Order?1</strong></span> <br>
+                                    <img src="//assets.winni.in/img/phone.png" style="width: 12px">
+                                    <a href="tel:+917829463510" class="blue-text">+91 - 7829463510</a> <span class="f12" style="color: #333">(8 AM - 11 PM) IST</span> <br>
+                                    <a href="tel:+911762410700" class="blue-text">01762410700</a> <span class="f12" style="color: #333">(8 AM - 11 PM) IST</span>
+            </div>
+    </div>
+    </div>
+    </footer>-->
+
+    <input type="hidden" id="isAuthorized" value="">
+    <input type="hidden" id="isLoggedIn" value="1">
+    <script type="text/javascript">
+        var webApp = {
+            loginViewUri: "/checkout/adv/login-view",
+            loginEmailVerifyUri: "/checkout/adv/login/verify-email",
+            loginUri: "/checkout/adv/login",
+            signupUri: "/checkout/adv/signup",
+            verifyOtpUri: "/checkout/adv/verify-mobile-otp",
+            rsendOtpUri: "/cs/customer/resend-mobile-otp",
+            rsendForgotOtpUri: "/cs/customer/resend-forgot-otp",
+            socialMblUri: "/customer/snd/mobile/otp",
+            cartViewUri: "/checkout/adv/cart/view",
+            newCartUri: "/checkout/adv/cart",
+            addressViewUri: "/checkout/adv/address/view?from=",
+            priceSummaryViewUri: "/checkout/adv/price-summary",
+            couponStatusViewUri: "/checkout/adv/coupon-status",
+            addNewAddressUri: "/checkout/adv/address/add",
+            personalizeViewUri: "/checkout/adv/personalize/view",
+            paymentViewUri: "/checkout/adv/payment/view",
+            selectAddressUri: "/checkout/adv/address/select-previous",
+            deliveryTimeUri: "/checkout/adv/delivery-time",
+            personalizePriceChangesUri: "/checkout/adv/personalize/price-changes",
+            personalizeSubmitUri: "/checkout/adv/personalize/submit",
+            checkCityOfPincodeUri: "/app/delivery-location/city-of-pincode/{pincode}/{countryId}",
+            waletUsedUri: "/checkout/adv/wallet",
+            applyCouponUri: "/checkout/adv/apply-coupon",
+            removeCouponUri: "/checkout/adv/remove-coupon",
+            walletUsedUri: "/checkout/adv/wallet",
+            corporatewalletUsedUri: "/checkout/adv/corporate-wallet",
+            paymentSubmitUri: "/checkout/adv/payment/submit",
+            paymentSubmitWinniCorporateWalletUri: "/checkout/adv/payment/winni-corporate-wallet/submit",
+            paymentSubmitWinniCorporateWalletReturnUri: "/checkout/adv/winni-corporate-wallet-return/",
+            payByPgUri: "/checkout/payment-method/pg",
+            checkoutCompletedUri: "/checkout/completed",
+            loginPageUri: "/checkout/adv/login",
+            addressPageUri: "/checkout/adv/address",
+            personalizePageUri: "/checkout/adv/personalize",
+            paymentPageUri: "/checkout/adv/payment",
+            initTransactionUri: "/checkout/adv/init-transaction",
+            cartUri: "/gift-box",
+            cityHomeUri: "/",
+            validateOtp: "/checkout/adv/validate-otp",
+            generateOtp: "/checkout/adv/generate-otp",
+            occasionQuotesUri: "/occasion/{occasionId}/quotes",
+            txId: "",
+            otpLoginUri: "/cs/customer/otp-login",
+            verifyOtpLoginUri: "/cs/customer/verify-otp-login",
+            rsendEmailOtpUri: "/cs/customer/resend-email-otp",
+            outagelink: "/checkout/adv/outage"
+        };
+        function removePromoCoupon() {
+            $.ajax({
+                url: webApp.removeCouponUri,
+                success: function (data) {
+                    if (data.success) {
+                        location.reload();
+                    }
+                }, error: function (data) {
+                }, complete: function (data) {
+                }
+            });
+        }
+        function showSessionExpired() {
+            $('#sessionExpiredOverlay').show();
+            setTimeout(function () {
+                location.href = webApp.addressPageUri;
+            }, 4000);
+        }
+        function updateDeliveryTime(index, id) {
+            var id = id;
+            var date = $('#deliveryDatePicker_' + index).val();
+            window.changeDate = date;
+            $('#deliveryTimeWrapper_' + index).html("");
+            $.ajax({
+                cache: false,
+                url: webApp.deliveryTimeUri,
+                data: {
+                    date: date,
+                    index: index,
+                    deliveryZoneId: id
+                },
+                type: 'post',
+                success: function (response) {
+                    if (response.success === "true") {
+                        $('#deliveryTimeWrapper_' + index).html(response.html);
+                        //deliveryTimeChange();
+                        $('select').formSelect();
+                        $(".picker__holder").hide();
+                        if (id === '2' || id === '15') {
+                            $("#dateInputDiv_" + index).html('<span style="font-size: 18px;color: #424242;position: absolute;margin-top: 4px">' + date + '</span>');
+                            $(".delivery-edit-button_" + index).show();
+                            var input = $('#deliveryDatePicker_' + index).datepicker();
+                            var picker = M.Datepicker.getInstance(input);
+                            picker.close();
+                            $('.picker-modal').modal('close');
+                        } else {
+                            $(".picker-modal-content").append($('#deliveryTimeWrapper_' + index).find(".deliveryTimeSlot").html());
+                            $('#deliveryTimeWrapper_' + index).find(".slot-timings").html("");
+                            $("#dateInputDiv_" + index).html('<span style="margin-top: 10px;position: absolute;font-size: 17px;color: #c5c3c3;">Delivery Date and Time</span>');
+                            $(".delivery-edit-button_" + index).hide();
+                        }
+
+                        $('#deliveryTimeWrapper_' + index).find(".backButtonIndex").attr("value", '1');
+                        $(".back-button-picker-modal").show();
+                        //                            $("#dateInput_" + index).attr("value", date);
+                        $("#dateInputDiv_" + index).attr("value", date);
+                        $(".picker-modal-header-text").html("Choose Delivery Type");
+
+                    } else if (response.message === "session expired") {
+                        showSessionExpired();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                complete: function (response) {
+                    //                         $('.picker__close')[0].click();
+                    //
+                    //                         if ($('.picker__close').length > 1) {
+                    //                             $('.picker__close')[1].click();
+                    //                         }
+                    var currency = localStorage.getItem('userCurrency');
+                    changeCurrecies(currency);
+                },
+                error: function (response) {
+                    alert("error");
+                }
+            });
+        }
+        function loadCartViewWithPincodeNew() {
+            alert("Please enter pincode to search");
+            //                gaTrack(webApp.cartViewUri);
+            var pincode = $('#cartPincodeSearch').val();
+            if (pincode == '') {
+                alert("Please enter pincode to search");
+            }
+            //$('#fullPageLoader').removeClass('hide');
+            var jqxhr = $.ajax({
+                //url: webApp.loginViewUri,
+                url: webApp.cartViewUri,
+                type: "GET",
+                cache: false,
+                data: { pincode: pincode },
+                dataType: "json",
+                /*jsonp: "callback", // only specify this to match the name of callback parameter your API is expecting for JSONP requests.*/
+                statusCode: {// if you want to handle specific error codes, use the status code mapping settings.
+                    //                        404: handler404,
+                    //                        500: handler500
+                }
+            });
+            jqxhr.done(function (data) {
+                if (data.success === "true") {
+                    $("#ckDynContentWrapper").html(data.html);
+                    highlightNavigation(5);
+                    scrollToTop();
+                    if ($(".relative-proceed-btn").length) {
+                        relativeProceedBtnTop = $(".relative-proceed-btn").offset().top;
+                    }
+                    $("#ckDynViewPart").val(5);
+                    try {
+                        showCheckoutAddonProducts();
+                    } catch (e) {
+
+                    }
+                    scrolled();
+                } else if (data.message === "session expired") {
+                    showSessionExpired();
+                }
+            });
+            jqxhr.fail(function (data) {
+
+            });
+            jqxhr.always(function (data) {
+                var currency = localStorage.getItem('userCurrency');
+                changeCurrecies(currency);
+                $('#fullPageLoader').addClass('hide');
+            });
+        }
+    </script>
+
+    <input type="hidden" id="ntCustEmail" value="sanja.8gajbhiye@gmail.com">
+    <input type="hidden" id="ntCustId" value="3924660">
+</main>
